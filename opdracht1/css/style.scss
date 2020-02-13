@@ -1,9 +1,16 @@
-$primary: #fff;
+$blue2: #0099cc;
+$black: #000;
+$blue: #00bfff;
+$black40: rgba(0, 0, 0, 0.4);
+$white: #fff;
 $white50: rgba(255,255,255,0.5);
 $white25: rgba(255,255,255,0.25);
-$bg: #333;
-$black: #000;
-$blue: deepskyblue;
+$gray: #333;
+$bg: $gray;
+$primary: $white;
+$secondary: $blue;
+$secondary-hover: $blue2;
+$button-shadow: $black40;
 
 html{
 	box-sizing: border-box; /* https://css-tricks.com/box-sizing/ */
@@ -17,7 +24,7 @@ body {
 	background-color: $black;
 	color: $primary;
 	font-size: 16px;
-	font-family: sans-serif;
+	font-family: 'Roboto', sans-serif;
 }
 
 main {
@@ -55,12 +62,6 @@ main {
 	.play {
 		position: absolute;
 		bottom: -1em;
-		padding: .5em 2em;
-		color: $bg;
-		background-color: $primary;
-		font-size: 1.5em;
-		font-weight: bold;
-		border-radius: 30px;
 		z-index: 2;
 	}
 }
@@ -120,6 +121,23 @@ main {
 		&.ghost {
 			background-color: $white25;
 		}		
+	}
+}
+
+.button {
+	padding: .5em 2em;
+	color: $primary;
+	background-color: $secondary;
+	font-size: 1.5em;
+	font-weight: bold;
+	border-radius: 30px;
+	cursor: pointer;
+	transition: all 0.3s ease 0s;
+
+	&:hover {
+		background-color: $secondary-hover;
+		box-shadow: 0px 15px 20px $button-shadow;
+		transform: translateY(-4px);
 	}
 }
 
