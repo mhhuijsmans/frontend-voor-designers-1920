@@ -4,3 +4,12 @@
   2. Koppel een evenListener aan het element om een mouse-event te detecteren
   3. Gebruik het Classlist object om een css class aan een element toe te voegen of weg te halen.
 */
+
+var el = document.getElementsByClassName("playlist")[0];
+var sortable = new Sortable(el, {
+	ghostClass: 'ghost',
+	swapThreshold: 0.30,
+    animation: 150,
+    delay: 200, // time in milliseconds to define when the sorting should start
+	delayOnTouchOnly: true
+});
