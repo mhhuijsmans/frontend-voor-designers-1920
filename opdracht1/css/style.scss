@@ -39,6 +39,7 @@ main {
 	justify-content: space-around;
 	align-items: center;
 	height: 40vh;
+	min-height: 200px;
 	padding: 1em;
 	background-color: $white25;
 
@@ -66,12 +67,12 @@ main {
 
 .playlist {
 	overflow-y: scroll;
-    scrollbar-width: none; /* Firefox */
-    -ms-overflow-style: none;  /* Internet Explorer 10+ */
-    &::-webkit-scrollbar {
-    	width: 0;
-    	height: 0;
-    }
+	scrollbar-width: none; /* Firefox */
+	-ms-overflow-style: none;  /* Internet Explorer 10+ */
+	&::-webkit-scrollbar {
+		width: 0;
+		height: 0;
+	}
 	height: 60vh;
 	max-height: 60vh;
 	overflow: scroll;
@@ -110,9 +111,9 @@ main {
 			}
 			.time {
 				float: right;
-			    position: absolute;
-			    bottom: calc(60% - 18px);
-			    right: 0;
+				position: absolute;
+				bottom: calc(60% - 18px);
+				right: 0;
 			}
 		}
 		
@@ -124,4 +125,25 @@ main {
 
 @media (max-width: 767px) {
 	
+}
+
+@media screen and (min-width: 320px) and (max-width: 767px) and (orientation: landscape) {
+	html {
+		transform: rotate(-90deg);
+		transform-origin: left top;
+		width: 100vh;
+		overflow-x: hidden;
+		position: absolute;
+		top: 100%;
+		left: 0;
+	}
+	.hero {
+		height: 40vw;
+		min-height: 200px;
+	}
+
+	.playlist {
+		height: 60vw;
+		max-height: 60vw;
+	}
 }
