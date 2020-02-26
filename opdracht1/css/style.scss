@@ -88,9 +88,15 @@ main {
 		height: 15vh;
 		padding: 0.75em;
 		border-bottom: 1px solid $white50;
+		cursor: grab;
 
 		& > * {
 			height: 100%;
+		}
+
+		.drag-icon {
+			height: 20px;
+    		margin-right: 0.75em;
 		}
 
 		.info {

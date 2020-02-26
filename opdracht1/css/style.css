@@ -81,9 +81,14 @@ main {
             align-items: center;
     height: 15vh;
     padding: 0.75em;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.5); }
+    border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+    cursor: -webkit-grab;
+    cursor: grab; }
     .playlist .item > * {
       height: 100%; }
+    .playlist .item .drag-icon {
+      height: 20px;
+      margin-right: 0.75em; }
     .playlist .item .info {
       position: relative;
       display: -webkit-inline-box;
