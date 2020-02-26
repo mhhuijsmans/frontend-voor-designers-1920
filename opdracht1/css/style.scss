@@ -100,28 +100,28 @@ main {
 		}
 
 		.info {
-			position: relative;
-			display: inline-flex;
-			flex-flow: column nowrap;
-			justify-content: center;
+			display: flex;
+			flex-flow: row nowrap;
+			justify-content: space-between;
+			align-items: center;
 			width: 100%;
 			margin-left: 0.75em;
 
 			span {
 				display: inline-block;
 			}
-			.title {
-				padding-rigt: 2em;
-				font-size: 1.5em;
-			}
-			.artist {
-				font-size: 1.1em;
+			.song {
+				display: flex;
+				flex-flow: column nowrap;
+				.title {
+					padding-right: 2em;
+					font-size: 1.5em;
+				}
+				.artist {
+					font-size: 1.1em;
+				}				
 			}
 			.time {
-				float: right;
-				position: absolute;
-				bottom: calc(60% - 18px);
-				right: 0;
 			}
 		}
 		
