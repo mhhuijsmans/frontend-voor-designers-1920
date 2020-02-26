@@ -1,9 +1,11 @@
 html {
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   /* https://css-tricks.com/box-sizing/ */ }
 
 *, *:before, *:after {
-  box-sizing: inherit; }
+  -webkit-box-sizing: inherit;
+          box-sizing: inherit; }
 
 body {
   margin: 0;
@@ -13,8 +15,13 @@ body {
   font-family: 'Roboto', sans-serif; }
 
 main {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-flow: column nowrap;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column nowrap;
+          flex-flow: column nowrap;
   margin: 0 auto;
   max-width: 768px;
   background-color: #333; }
@@ -23,10 +30,18 @@ main {
 
 .hero {
   position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-flow: column nowrap;
-  justify-content: space-around;
-  align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column nowrap;
+          flex-flow: column nowrap;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   height: 40vh;
   min-height: 200px;
   padding: 1em;
@@ -58,8 +73,12 @@ main {
     width: 0;
     height: 0; }
   .playlist .item {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    align-items: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
     height: 15vh;
     padding: 0.75em;
     border-bottom: 1px solid rgba(255, 255, 255, 0.5); }
@@ -67,9 +86,16 @@ main {
       height: 100%; }
     .playlist .item .info {
       position: relative;
+      display: -webkit-inline-box;
+      display: -ms-inline-flexbox;
       display: inline-flex;
-      flex-flow: column nowrap;
-      justify-content: center;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+          -ms-flex-flow: column nowrap;
+              flex-flow: column nowrap;
+      -webkit-box-pack: center;
+          -ms-flex-pack: center;
+              justify-content: center;
       width: 100%;
       margin-left: 0.75em; }
       .playlist .item .info span {
@@ -94,16 +120,21 @@ main {
   font-weight: bold;
   border-radius: 30px;
   cursor: pointer;
+  -webkit-transition: all 0.3s ease 0s;
   transition: all 0.3s ease 0s; }
   .button:hover {
     background-color: #0099cc;
-    box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.4);
-    transform: translateY(-4px); }
+    -webkit-box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.4);
+            box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.4);
+    -webkit-transform: translateY(-4px);
+            transform: translateY(-4px); }
 
 @media screen and (min-width: 320px) and (max-width: 767px) and (orientation: landscape) {
   html {
-    transform: rotate(-90deg);
-    transform-origin: left top;
+    -webkit-transform: rotate(-90deg);
+            transform: rotate(-90deg);
+    -webkit-transform-origin: left top;
+            transform-origin: left top;
     width: 100vh;
     overflow-x: hidden;
     position: absolute;
