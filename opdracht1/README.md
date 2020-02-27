@@ -18,3 +18,36 @@ Ontwerp een user interface voor een gegeven use case. Werk je ontwerp uit in HTM
 ***
 
 ## Verslaglegging
+Ik heb gekozen voor de use case "In een verzameling muzieknummers wil ik de volgorde kunnen veranderen om een playlist te maken voor een feest".
+
+### Idee & Schets
+![Schets eerste ontwerp](https://github.com/mhhuijsmans/frontend-voor-designers-1920/raw/master/opdracht1/doc/schets.jpg)
+
+Mijn eerste idee was een app met bovenaan de playlist informatie en een play knop. Daaronder alle nummers die in de playlist staan.
+De gebruiker kan de lijst handmatig sorteren door de nummers te slepen naar de gewenste positie.
+
+### Eerste versie
+![Eerste versie](https://github.com/mhhuijsmans/frontend-voor-designers-1920/raw/master/opdracht1/doc/v1.jpg)
+
+Voor het sorteren heb ik gebruik gemaakt van de library [SortableJS](https://github.com/SortableJS/Sortable).
+
+### Feedback
+Tijdens de les heb ik feedback gekregen op bovenstaande eerste versie.
+1. De uitwerking van je ontwerp moet het doen in een browser en device naar keuze.
+
+    Het werkt in een browser zoals gewenst.    
+    Is reponsive
+2. De twee Principles of User Interface Design 04 & 11 zijn goed toegepast
+
+    Het draggen is niet meteen duidelijk zichtbaar (de werking)    
+    Kleurgebruik (playknop)
+    
+### Tweede versie
+![Tweede versie](https://github.com/mhhuijsmans/frontend-voor-designers-1920/raw/master/opdracht1/doc/v2.jpg)
+Aan de hand van de feedback die ik heb ontvangen, heb ik enkele aanpassigen gedaan.
+
+- Een drag handle (de stippen) toegevoegd om aan te geven dat de gebruiker de nummers kan verslepen.
+- Voor desktop een drag cursor toegevoegd, om bovenstaande reden.
+- De play knop een andere kleur gegeven om deze meer op te laten vallen en duidelijk te maken dat er op geklikt kan worden.
+
+[Live link](https://mhhuijsmans.github.io/frontend-voor-designers-1920/opdracht1/)
