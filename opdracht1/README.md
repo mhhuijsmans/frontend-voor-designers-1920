@@ -44,6 +44,7 @@ Tijdens de les heb ik feedback gekregen op bovenstaande eerste versie.
     
 ### Tweede versie
 ![Tweede versie](https://github.com/mhhuijsmans/frontend-voor-designers-1920/raw/master/opdracht1/doc/v2.jpg)
+
 Aan de hand van de feedback die ik heb ontvangen, heb ik enkele aanpassigen gedaan.
 
 - Een drag handle (de stippen) toegevoegd om aan te geven dat de gebruiker de nummers kan verslepen.
