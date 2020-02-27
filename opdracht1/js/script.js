@@ -1,5 +1,5 @@
-var el = document.getElementsByClassName("playlist")[0];
-var sortable = new Sortable(el, {
+var playlist = document.querySelector(".playlist");
+var sortable = new Sortable(playlist, {
 	ghostClass: 'ghost',
 	swapThreshold: 0.30,
     animation: 150,
