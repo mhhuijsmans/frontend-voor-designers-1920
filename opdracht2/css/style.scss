@@ -1,0 +1,92 @@
+$blue2: #0099cc;
+$black: #000;
+$blue: #00bfff;
+$black40: rgba(0, 0, 0, 0.4);
+$white: #fff;
+$white50: rgba(255,255,255,0.5);
+$white25: rgba(255,255,255,0.25);
+$gray: #333;
+$bg: $gray;
+$primary: $white;
+$secondary: $blue;
+$secondary-hover: $blue2;
+$button-shadow: $black40;
+
+html{
+	box-sizing: border-box; /* https://css-tricks.com/box-sizing/ */
+}
+*, *:before, *:after {
+	box-sizing: inherit;
+}
+
+body {
+	display: flex;
+	flex-flow: column nowrap;
+	justify-content: space-between;
+	margin: 0;
+	background-color: $black;
+	color: $primary;
+	font-size: 16px;
+	font-family: 'Indie Flower', cursive;
+}
+
+main {
+	display: flex;
+	align-items: center;
+}
+
+.carousel {
+	display: flex;
+	flex-flow: row nowrap;
+	justify-content: center;
+	height: 80vh;
+	margin: 0;
+	padding: 2em;
+	list-style: none;
+
+	.item-container {		
+		transform: rotate(-2deg);
+
+		&:nth-child(even) {
+			transform: rotate(2deg);
+		}
+
+		&:nth-child(3n) {
+			transform: rotate(5deg);
+		}
+
+		&:nth-child(4n) {
+			transform: rotate(-4deg);
+		}
+	}
+
+	.item {
+		display: flex;
+		flex-flow: column nowrap;
+		align-items: center;
+		height: 100%;
+		margin: 0 1em;
+		border-bottom: 90px solid $white;
+
+		.photo {
+			height: 100%;
+			border: 20px solid $white;
+			border-bottom: 0;
+		}
+
+		&:after {
+			content: attr(title);
+			color: $black;
+			line-height: 90px;
+			font-size: 1.3em;
+		}
+	}
+}
+
+p {
+	margin: 0;
+}
+
+a {
+	color: $white;
+}
