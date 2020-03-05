@@ -96,7 +96,36 @@ body {
       -webkit-transform: rotate(-4deg);
               transform: rotate(-4deg); }
 
+.navigation {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row nowrap;
+          flex-flow: row nowrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center; }
+  .navigation .dots {
+    padding: 0 2em;
+    list-style: none;
+    text-align: center;
+    line-height: 1; }
+  .navigation .dot {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    margin: 0 5px;
+    border-radius: 100%;
+    background-color: #fff; }
+
+.footer {
+  position: absolute;
+  bottom: 0; }
+
 .credit {
+  width: 100vw;
   margin-top: 50px;
   text-align: center; }
 
