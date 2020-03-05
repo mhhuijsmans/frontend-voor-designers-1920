@@ -12,7 +12,7 @@ html{
 body {
 	display: flex;
 	flex-flow: column nowrap;
-	justify-content: space-evenly;
+	justify-content: center;
 	overflow: hidden;
 	margin: 0;
 	background-color: $black;
@@ -22,30 +22,45 @@ body {
 }
 
 .carousel {
+	max-height: 625px;
 	margin: 0;
 	padding: 2em 0;
 	list-style: none;
 
+	.flickity-viewport {
+		overflow: visible;
+	}
+
 	.item {
 		display: flex;
 		flex-flow: column nowrap;
+		justify-content: center;
 		align-items: center;
-		height: 75%;
+		width: 100%;
 		margin: 0 3em;
-		border-bottom: 90px solid $white;
 		transform: rotate(-2deg);
 
 		.photo {
-			height: 100%;
+			width: 100%;
 			border: 20px solid $white;
 			border-bottom: 0;
 		}
 
 		&:after {
 			content: attr(title);
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			width: 100%;
+			height: 90px;
+			background-color: $white;
 			color: $black;
-			line-height: 90px;
 			font-size: 1.3em;
+			text-align: center;
+			background: $white;
+			border: 20px solid $white;
+			border-top: 0;
+			border-bottom: 0;
 		}
 	}
 
@@ -53,7 +68,7 @@ body {
 		display: flex;
 		justify-content: center;
 		align-items: center;
-		height: 80vh;
+		width: 100%;
 
 		&:nth-child(even) {
 			.item {
@@ -76,7 +91,8 @@ body {
 }
 
 .credit {
-	padding-left: 2em;
+	margin-top: 50px;
+	text-align: center;
 }
 
 p {
@@ -85,4 +101,36 @@ p {
 
 a {
 	color: $white;
+}
+
+@media (min-width: 415px) {
+	.carousel {
+		.item-container {
+			width: 75%;
+		}
+	}
+}
+
+@media (min-width: 568px) {
+	.carousel {
+		.item-container {
+			width: 60%;
+		}
+	}
+}
+
+@media (min-width: 768px) {
+	.carousel {
+		.item-container {
+			width: 40%;
+		}
+	}
+}
+
+@media (min-width: 1024px) {
+	.carousel {
+		.item-container {
+			width: 33%;
+		}
+	}
 }

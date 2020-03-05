@@ -15,9 +15,9 @@ body {
   -webkit-box-direction: normal;
       -ms-flex-flow: column nowrap;
           flex-flow: column nowrap;
-  -webkit-box-pack: space-evenly;
-      -ms-flex-pack: space-evenly;
-          justify-content: space-evenly;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   overflow: hidden;
   margin: 0;
   background-color: #000;
@@ -26,9 +26,12 @@ body {
   font-family: 'Indie Flower', cursive; }
 
 .carousel {
+  max-height: 625px;
   margin: 0;
   padding: 2em 0;
   list-style: none; }
+  .carousel .flickity-viewport {
+    overflow: visible; }
   .carousel .item {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -37,23 +40,41 @@ body {
     -webkit-box-direction: normal;
         -ms-flex-flow: column nowrap;
             flex-flow: column nowrap;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
-    height: 75%;
+    width: 100%;
     margin: 0 3em;
-    border-bottom: 90px solid #fff;
     -webkit-transform: rotate(-2deg);
             transform: rotate(-2deg); }
     .carousel .item .photo {
-      height: 100%;
+      width: 100%;
       border: 20px solid #fff;
       border-bottom: 0; }
     .carousel .item:after {
       content: attr(title);
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-align: center;
+          -ms-flex-align: center;
+              align-items: center;
+      -webkit-box-pack: center;
+          -ms-flex-pack: center;
+              justify-content: center;
+      width: 100%;
+      height: 90px;
+      background-color: #fff;
       color: #000;
-      line-height: 90px;
-      font-size: 1.3em; }
+      font-size: 1.3em;
+      text-align: center;
+      background: #fff;
+      border: 20px solid #fff;
+      border-top: 0;
+      border-bottom: 0; }
   .carousel .item-container {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -64,7 +85,7 @@ body {
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
-    height: 80vh; }
+    width: 100%; }
     .carousel .item-container:nth-child(even) .item {
       -webkit-transform: rotate(2deg);
               transform: rotate(2deg); }
@@ -76,10 +97,24 @@ body {
               transform: rotate(-4deg); }
 
 .credit {
-  padding-left: 2em; }
+  margin-top: 50px;
+  text-align: center; }
 
 p {
   margin: 0; }
 
 a {
   color: #fff; }
+
+@media (min-width: 415px) {
+  .carousel .item-container {
+    width: 75%; } }
+@media (min-width: 568px) {
+  .carousel .item-container {
+    width: 60%; } }
+@media (min-width: 768px) {
+  .carousel .item-container {
+    width: 40%; } }
+@media (min-width: 1024px) {
+  .carousel .item-container {
+    width: 33%; } }
