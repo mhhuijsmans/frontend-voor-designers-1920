@@ -104,9 +104,9 @@ main {
           height: 2.54558em;
           -webkit-transform: translateY(0em) rotate(0deg);
                   transform: translateY(0em) rotate(0deg); }
-    .grid-container .page.is-selected:nth-child(odd) {
+    .grid-container .page.is-selected:nth-child(odd):not(.page1) {
       background: linear-gradient(155deg, rgba(0, 0, 0, 0) 1.5em, #fff 0%); }
-      .grid-container .page.is-selected:nth-child(odd) .dog-ear {
+      .grid-container .page.is-selected:nth-child(odd):not(.page1) .dog-ear {
         left: 0;
         background: -webkit-gradient(linear, left top, right bottom, color-stop(50%, rgba(0, 0, 0, 0)), color-stop(0%, rgba(0, 0, 0, 0.2)), to(rgba(0, 0, 0, 0.4))) 100% 0 no-repeat;
         background: linear-gradient(to right bottom, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.4)) 100% 0 no-repeat;
@@ -118,9 +118,9 @@ main {
                 transform-origin: bottom left;
         -webkit-box-shadow: 0.2em -0.2em 0.3em -0.1em rgba(0, 0, 0, 0.15);
                 box-shadow: 0.2em -0.2em 0.3em -0.1em rgba(0, 0, 0, 0.15); }
-      .grid-container .page.is-selected:nth-child(odd):hover {
+      .grid-container .page.is-selected:nth-child(odd):not(.page1):hover {
         background: linear-gradient(135deg, rgba(0, 0, 0, 0) 1.8em, #fff 0%); }
-        .grid-container .page.is-selected:nth-child(odd):hover .dog-ear {
+        .grid-container .page.is-selected:nth-child(odd):not(.page1):hover .dog-ear {
           width: 2.54558em;
           height: 2.54558em;
           -webkit-transform: translateY(0em) rotate(0deg);
