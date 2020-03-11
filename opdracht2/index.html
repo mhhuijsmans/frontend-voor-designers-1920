@@ -11,32 +11,74 @@
 <body>
 	<main>
 		<div class="grid-container">
-			<div class="page page1 page2by2">
+			<div class="page page1 page2by2" data-maxphotos="4">
 				<div class="item-container">
-					<div class="item" title="Oía Santorini, Greece - Feb 27 2020"><img src="img/photo1.jpg" alt="" class="photo"></div>
+					<div class="item" title="Basílica de la Sagrada Família"><img src="img/photo0.jpg" alt="" class="photo"></div>
 				</div>
 				<div class="item-container">
-					<div class="item" title="Schloss Neuschwanstein - Feb 24 2020"><img src="img/photo2.jpg" alt="" class="photo"></div>
+					<div class="item" title="Oía Santorini, Greece"><img src="img/photo1.jpg" alt="" class="photo"></div>
 				</div>
 				<div class="item-container">
-					<div class="item" title="Munich, Germany - Feb 23 2020"><img src="img/photo3.jpg" alt="" class="photo"></div>
+					<div class="item" title="Schloss Neuschwanstein"><img src="img/photo2.jpg" alt="" class="photo"></div>
 				</div>
 				<div class="item-container">
-					<div class="item" title="München City - Feb 23 2020"><img src="img/photo4.jpg" alt="" class="photo"></div>
+					<div class="item" title="Munich, Germany"><img src="img/photo3.jpg" alt="" class="photo"></div>
 				</div>
 			</div>
-			<div class="page page2 page2by2">
+			<div class="page page2 page2by2" data-maxphotos="4">
 				<div class="item-container">
-					<div class="item" title="Zürich Old Town - Dec 17 2019"><img src="img/photo5.jpg" alt="" class="photo"></div>
+					<div class="item" title="Zürich Old Town"><img src="img/photo5.jpg" alt="" class="photo"></div>
 				</div>
 				<div class="item-container">
-					<div class="item" title="Lion Monument - Nov 29 2019"><img src="img/photo6.jpg" alt="" class="photo"></div>
+					<div class="item" title="München City"><img src="img/photo4.jpg" alt="" class="photo"></div>
 				</div>
 				<div class="item-container">
-					<div class="item" title="Lindenhof Hill, Zurich - Nov 25 2019"><img src="img/photo7.jpg" alt="" class="photo"></div>
+					<div class="item item-empty"></div>
 				</div>
 				<div class="item-container">
-					<div class="item" title="Luzern, Löwenplatz - Nov 1 2019"><img src="img/photo8.jpg" alt="" class="photo"></div>
+					<div class="item" title="Lion Monument"><img src="img/photo6.jpg" alt="" class="photo"></div>
+				</div>
+			</div>
+			<div class="page page3 page2by2" data-maxphotos="4">
+				<div class="item-container">
+					<div class="item" title="Lindenhof Hill, Zurich"><img src="img/photo7.jpg" alt="" class="photo"></div>
+				</div>
+				<div class="item-container">
+					<div class="item" title="Luzern, Löwenplatz"><img src="img/photo8.jpg" alt="" class="photo"></div>
+				</div>
+				<div class="item-container">
+					<div class="item" title="Münsterbrücke, Zürich"><img src="img/photo9.jpg" alt="" class="photo"></div>
+				</div>
+				<div class="item-container">
+					<div class="item" title="Mirissa Sri Lanka"><img src="img/photo10.jpg" alt="" class="photo"></div>
+				</div>
+			</div>
+			<div class="page page4 page2by2" data-maxphotos="4">
+				<div class="item-container">
+					<div class="item" title="Twenty-Two Weligambay"><img src="img/photo11.jpg" alt="" class="photo"></div>
+				</div>
+				<div class="item-container">
+					<div class="item" title="Twenty-Two Weligambay"><img src="img/photo12.jpg" alt="" class="photo"></div>
+				</div>
+				<div class="item-container">
+					<div class="item" title="Pitiwella, Sri Lanka"><img src="img/photo13.jpg" alt="" class="photo"></div>
+				</div>
+				<div class="item-container">
+					<div class="item" title="Ministry Of Crab"><img src="img/photo14.jpg" alt="" class="photo"></div>
+				</div>
+			</div>
+			<div class="page page4 page2by2" data-maxphotos="4">
+				<div class="item-container">
+					<div class="item" title="Dubai, United Arab Emirates"><img src="img/photo15.jpg" alt="" class="photo"></div>
+				</div>
+				<div class="item-container">
+					<div class="item" title="Havana, Cuba"><img src="img/photo16.jpg" alt="" class="photo"></div>
+				</div>
+				<div class="item-container">
+					<div class="item" title="Cartagena, Colombia"><img src="img/photo17.jpg" alt="" class="photo"></div>
+				</div>
+				<div class="item-container">
+					<div class="item" title="La Piedra Del Peñol"><img src="img/photo18.jpg" alt="" class="photo"></div>
 				</div>
 			</div>
 		</div>
@@ -44,12 +86,22 @@
 			<button class="button button-previous">Prev</button>
 			<ol class="dots"></ol>
 			<button class="button button-next">Next</button>
+			<div class="toggle-container">
+				<span>Insert photos</span>
+				<label class="toggle">
+					<input type="checkbox" class="js-swaptoggle">
+					<span class="slider round"></span>
+				</label>
+				<span>Swap photos</span>
+			</div>
 		</div>
 	</main>
 	<footer>
 		<span class="credit">Photo credits to <a href="https://www.instagram.com/gelothebear/">Gelo The Bear</a></span>
 	</footer>
-	<script src="https://cdn.jsdelivr.net/npm/flickity@2.2.1/dist/flickity.pkgd.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/sortablejs@1.10.2/Sortable.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/flickity@2.1.2/dist/flickity.pkgd.js"></script>
 	<script src="js/script.js" type="text/javascript"></script>
 </body>
 </html>
