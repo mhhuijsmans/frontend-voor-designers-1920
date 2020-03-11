@@ -5,12 +5,14 @@ $red: #db2121;
 $blue: #2196F3;
 $primary: $white;
 $secondary: $red;
+$tertiary: $blue;
 
 $carouselmaxheight: 650px;
 $border: 20px;
 $photocaption: 60px;
 $navheight: calc(65px + 2em);
 $footerheight: 40px;
+$dotwidth: 50px;
 
 html{
 	box-sizing: border-box; /* https://css-tricks.com/box-sizing/ */
@@ -43,7 +45,8 @@ main {
 	width: 80%;
 	height: calc(100% - 65px - 6em);
 	margin: 2em auto;
-	background: $white;
+	background: white;
+	background: linear-gradient(90deg, rgba(150,150,150,1) 0%, rgba(102,102,102,1) 3%, rgba(255,255,255,1) 50%, rgba(102,102,102,1) 97%, rgba(150,150,150,1) 100%);
 	box-shadow: $black50 0 1em 3em;
 
 	&:before {
@@ -76,12 +79,73 @@ main {
 	}
 
 	.page {
+		position: relative;
+		overflow: hidden;
 		display: grid;
 		justify-items: center;
 		align-items: center;
 		width: 49.4%;
 		height: 100%;
 		padding: 1em;
+		background: $white; /* fallback */
+
+		&.is-selected {
+			// https://codepen.io/leaverou/pen/raGaNR
+			.dog-ear {
+				position: absolute;
+				top: 0;
+			}
+
+			&:nth-child(even) {
+				background: linear-gradient(-155deg, rgba(0, 0, 0, 0) 1.5em, $white 0%);
+
+				.dog-ear {
+					right: 0;
+					background: linear-gradient(to left bottom, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.4)) 100% 0 no-repeat;
+					width: 1.65507em;
+					height: 3.5493em;
+					transform: translateY(-1.89424em) rotate(-40deg);
+					transform-origin: bottom right;
+					box-shadow: -0.2em 0.2em 0.3em -0.1em rgba(0, 0, 0, 0.15);
+				}
+
+				&:hover {
+					background: linear-gradient(-135deg, rgba(0, 0, 0, 0) 1.8em, $white 0%);
+					.dog-ear {
+						width: 2.54558em;
+						height: 2.54558em;
+						transform: translateY(0em) rotate(0deg);
+					}
+				}
+			}
+
+			&:nth-child(odd) {
+				background: linear-gradient(155deg, rgba(0, 0, 0, 0) 1.5em, $white 0%);
+
+				.dog-ear {
+					left: 0;
+					background: linear-gradient(to right bottom, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.4)) 100% 0 no-repeat;
+					width: 1.65507em;
+					height: 3.5493em;
+					transform: translateY(-1.89424em) rotate(40deg);
+					transform-origin: bottom left;
+					box-shadow: 0.2em -0.2em 0.3em -0.1em rgba(0, 0, 0, 0.15);
+				}
+
+				&:hover {
+					background: linear-gradient(135deg, rgba(0, 0, 0, 0) 1.8em, $white 0%);
+					.dog-ear {
+						width: 2.54558em;
+						height: 2.54558em;
+						transform: translateY(0em) rotate(0deg);
+					}
+				}
+			}
+		}
+		
+		&:not(.is-selected) {
+			visibility: hidden;
+		}
 	}
 
 	.page2by2 {
@@ -95,7 +159,7 @@ main {
 			justify-content: center;
 			align-items: center;
 			width: auto;
-    		height: 90%;
+    		height: 75%;
 
 			&:nth-of-type(1) {
 				grid-area: item1;
@@ -175,36 +239,16 @@ main {
 	}
 }
 
-.navigation {
-	position: relative;
+.controls {
 	display: flex;
 	flex-flow: row nowrap;
-	justify-content: center;
+	justify-content: flex-end;
 	align-items: center;
+	width: 80%;
 	height: $navheight;
-
-	.button {
-		height: 35px;
-	}
-
-	.dots {
-		padding: 0 2em;
-		list-style: none;
-		text-align: center;
-		line-height: 1;
-	}
-	.dot {
-		display: inline-block;
-		width: 12px;
-		height: 12px;
-		margin: 0 5px;
-		border-radius: 100%;
-		background-color: $primary;
-	}
+	margin: 0 auto;
 
 	.toggle-container {
-		position: absolute;
-		right: 10%;
 		display: flex;
 		flex-flow: row nowrap;
 		justify-content: center;
@@ -254,6 +298,38 @@ main {
 				&:checked + .slider:before {
 					transform: translateX(26px);
 				}
+			}
+		}
+	}
+
+	.dots {
+		position: absolute;
+		top: 5em;
+		right: calc(10.5% - #{$dotwidth});
+		display: flex;
+		flex-flow: column nowrap;
+		align-items: flex-end;
+		list-style: none;
+		counter-reset: dots; 
+
+		.dot {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			width: $dotwidth;
+			height: 40px;
+			margin: .5em 0;
+			color: $primary;
+			background-color: $tertiary;
+			font-size: 2em;
+
+			&:after {
+				counter-increment: dots;
+				content: counter(dots);
+			}
+
+			&.is-selected {
+				width: calc(#{$dotwidth} + 20px);
 			}
 		}
 	}

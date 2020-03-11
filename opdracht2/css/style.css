@@ -38,7 +38,9 @@ main {
   width: 80%;
   height: calc(100% - 65px - 6em);
   margin: 2em auto;
-  background: #fff;
+  background: white;
+  background: -webkit-gradient(linear, left top, right top, from(#969696), color-stop(3%, #666666), color-stop(50%, white), color-stop(97%, #666666), to(#969696));
+  background: linear-gradient(90deg, #969696 0%, #666666 3%, white 50%, #666666 97%, #969696 100%);
   -webkit-box-shadow: rgba(0, 0, 0, 0.5) 0 1em 3em;
           box-shadow: rgba(0, 0, 0, 0.5) 0 1em 3em; }
   .grid-container:before {
@@ -66,6 +68,8 @@ main {
   .grid-container .flickity-viewport {
     height: 100% !important; }
   .grid-container .page {
+    position: relative;
+    overflow: hidden;
     display: grid;
     justify-items: center;
     -webkit-box-align: center;
@@ -73,7 +77,56 @@ main {
             align-items: center;
     width: 49.4%;
     height: 100%;
-    padding: 1em; }
+    padding: 1em;
+    background: #fff;
+    /* fallback */ }
+    .grid-container .page.is-selected .dog-ear {
+      position: absolute;
+      top: 0; }
+    .grid-container .page.is-selected:nth-child(even) {
+      background: linear-gradient(-155deg, rgba(0, 0, 0, 0) 1.5em, #fff 0%); }
+      .grid-container .page.is-selected:nth-child(even) .dog-ear {
+        right: 0;
+        background: -webkit-gradient(linear, right top, left bottom, color-stop(50%, rgba(0, 0, 0, 0)), color-stop(0%, rgba(0, 0, 0, 0.2)), to(rgba(0, 0, 0, 0.4))) 100% 0 no-repeat;
+        background: linear-gradient(to left bottom, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.4)) 100% 0 no-repeat;
+        width: 1.65507em;
+        height: 3.5493em;
+        -webkit-transform: translateY(-1.89424em) rotate(-40deg);
+                transform: translateY(-1.89424em) rotate(-40deg);
+        -webkit-transform-origin: bottom right;
+                transform-origin: bottom right;
+        -webkit-box-shadow: -0.2em 0.2em 0.3em -0.1em rgba(0, 0, 0, 0.15);
+                box-shadow: -0.2em 0.2em 0.3em -0.1em rgba(0, 0, 0, 0.15); }
+      .grid-container .page.is-selected:nth-child(even):hover {
+        background: linear-gradient(-135deg, rgba(0, 0, 0, 0) 1.8em, #fff 0%); }
+        .grid-container .page.is-selected:nth-child(even):hover .dog-ear {
+          width: 2.54558em;
+          height: 2.54558em;
+          -webkit-transform: translateY(0em) rotate(0deg);
+                  transform: translateY(0em) rotate(0deg); }
+    .grid-container .page.is-selected:nth-child(odd) {
+      background: linear-gradient(155deg, rgba(0, 0, 0, 0) 1.5em, #fff 0%); }
+      .grid-container .page.is-selected:nth-child(odd) .dog-ear {
+        left: 0;
+        background: -webkit-gradient(linear, left top, right bottom, color-stop(50%, rgba(0, 0, 0, 0)), color-stop(0%, rgba(0, 0, 0, 0.2)), to(rgba(0, 0, 0, 0.4))) 100% 0 no-repeat;
+        background: linear-gradient(to right bottom, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.4)) 100% 0 no-repeat;
+        width: 1.65507em;
+        height: 3.5493em;
+        -webkit-transform: translateY(-1.89424em) rotate(40deg);
+                transform: translateY(-1.89424em) rotate(40deg);
+        -webkit-transform-origin: bottom left;
+                transform-origin: bottom left;
+        -webkit-box-shadow: 0.2em -0.2em 0.3em -0.1em rgba(0, 0, 0, 0.15);
+                box-shadow: 0.2em -0.2em 0.3em -0.1em rgba(0, 0, 0, 0.15); }
+      .grid-container .page.is-selected:nth-child(odd):hover {
+        background: linear-gradient(135deg, rgba(0, 0, 0, 0) 1.8em, #fff 0%); }
+        .grid-container .page.is-selected:nth-child(odd):hover .dog-ear {
+          width: 2.54558em;
+          height: 2.54558em;
+          -webkit-transform: translateY(0em) rotate(0deg);
+                  transform: translateY(0em) rotate(0deg); }
+    .grid-container .page:not(.is-selected) {
+      visibility: hidden; }
   .grid-container .page2by2 {
     grid-template-columns: 50% 50%;
     grid-template-rows: 50% 50%;
@@ -90,7 +143,7 @@ main {
           -ms-flex-align: center;
               align-items: center;
       width: auto;
-      height: 90%; }
+      height: 75%; }
       .grid-container .page2by2 .item-container:nth-of-type(1) {
         grid-area: item1; }
         .grid-container .page2by2 .item-container:nth-of-type(1) .item {
@@ -163,8 +216,7 @@ main {
       height: calc(100% - 60px);
       padding: 20px 20px 0; }
 
-.navigation {
-  position: relative;
+.controls {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -172,30 +224,16 @@ main {
   -webkit-box-direction: normal;
       -ms-flex-flow: row nowrap;
           flex-flow: row nowrap;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  height: calc(65px + 2em); }
-  .navigation .button {
-    height: 35px; }
-  .navigation .dots {
-    padding: 0 2em;
-    list-style: none;
-    text-align: center;
-    line-height: 1; }
-  .navigation .dot {
-    display: inline-block;
-    width: 12px;
-    height: 12px;
-    margin: 0 5px;
-    border-radius: 100%;
-    background-color: #fff; }
-  .navigation .toggle-container {
-    position: absolute;
-    right: 10%;
+  width: 80%;
+  height: calc(65px + 2em);
+  margin: 0 auto; }
+  .controls .toggle-container {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -209,15 +247,15 @@ main {
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center; }
-    .navigation .toggle-container span {
+    .controls .toggle-container span {
       line-height: calc(65px + 2em); }
-    .navigation .toggle-container .toggle {
+    .controls .toggle-container .toggle {
       position: relative;
       display: inline-block;
       width: 60px;
       height: 35px;
       margin: 0 1em; }
-      .navigation .toggle-container .toggle .slider {
+      .controls .toggle-container .toggle .slider {
         position: absolute;
         cursor: pointer;
         top: 0;
@@ -228,7 +266,7 @@ main {
         background-color: #db2121;
         -webkit-transition: .4s;
         transition: .4s; }
-        .navigation .toggle-container .toggle .slider:before {
+        .controls .toggle-container .toggle .slider:before {
           position: absolute;
           content: "";
           height: 26px;
@@ -239,13 +277,50 @@ main {
           background-color: #fff;
           -webkit-transition: .4s;
           transition: .4s; }
-      .navigation .toggle-container .toggle input {
+      .controls .toggle-container .toggle input {
         opacity: 0;
         width: 0;
         height: 0; }
-        .navigation .toggle-container .toggle input:checked + .slider:before {
+        .controls .toggle-container .toggle input:checked + .slider:before {
           -webkit-transform: translateX(26px);
                   transform: translateX(26px); }
+  .controls .dots {
+    position: absolute;
+    top: 5em;
+    right: calc(10.5% - 50px);
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-flow: column nowrap;
+            flex-flow: column nowrap;
+    -webkit-box-align: end;
+        -ms-flex-align: end;
+            align-items: flex-end;
+    list-style: none;
+    counter-reset: dots; }
+    .controls .dots .dot {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-pack: center;
+          -ms-flex-pack: center;
+              justify-content: center;
+      -webkit-box-align: center;
+          -ms-flex-align: center;
+              align-items: center;
+      width: 50px;
+      height: 40px;
+      margin: .5em 0;
+      color: #fff;
+      background-color: #2196F3;
+      font-size: 2em; }
+      .controls .dots .dot:after {
+        counter-increment: dots;
+        content: counter(dots); }
+      .controls .dots .dot.is-selected {
+        width: calc(50px + 20px); }
 
 .credit {
   line-height: 40px; }

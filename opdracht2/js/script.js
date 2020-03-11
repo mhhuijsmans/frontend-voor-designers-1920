@@ -68,30 +68,14 @@ var utils = window.fizzyUIUtils;
 
 var carousel = document.querySelector('.grid-container');
 
-var flickityDrag = {
+var flickityOptions = {
 	cellAlign: 'left',
 	draggable: true,
 	groupCells: true,
-	prevNextButtons: false,
 	pageDots: false
 }
 
-var flickityNoDrag = {
-	cellAlign: 'left',
-	draggable: false,
-	groupCells: true,
-	prevNextButtons: false,
-	pageDots: false
-}
-
-var flickity = new Flickity( carousel, flickityDrag);
-
-// flickity.on( 'dragStart', function( event, pointer ) {
-// 	var target = pointer.target;
-// 	if (target.classList.contains('photo') || target.classList.contains('item')) {
-// 		flickity._pointerCancel(event, event);
-// 	}
-// });
+var flickity = new Flickity( carousel, flickityOptions);
 
 // dynamically making dots
 var photos = document.querySelectorAll('.page');
@@ -127,16 +111,20 @@ cellsButtonGroup.addEventListener('click', function(event) {
 });
 
 // previous
-var previousButton = document.querySelector('.button-previous');
-previousButton.addEventListener('click', function() {
-	flickity.previous();
-});
+var previousButtons = document.querySelectorAll('.button-previous');
+for (i = 0; i < previousButtons.length; i++) {
+	previousButtons[i].addEventListener('click', function() {
+		flickity.previous();
+	})
+}
 
 // next
-var nextButton = document.querySelector('.button-next');
-nextButton.addEventListener('click', function() {
-	flickity.next();
-});
+var nextButtons = document.querySelectorAll('.button-next');
+for (i = 0; i < nextButtons.length; i++) {
+	nextButtons[i].addEventListener('click', function() {
+		flickity.next();
+	})
+}
 
 //Set empty containers height to equal other containers' height
 var emptyContainers = document.querySelectorAll('.page .item-empty');
