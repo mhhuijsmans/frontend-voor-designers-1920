@@ -110,20 +110,54 @@ cellsButtonGroup.addEventListener('click', function(event) {
 	flickity.select(index);
 });
 
+// dragover cell select
+cellsButtonGroup.addEventListener('dragover', function(event) {
+	if (!matchesSelector( event.target, '.dot')) {
+		return;
+	}
+	var index = cellsButtons.indexOf(event.target);
+	flickity.select(index);
+});
+
+var dragCD = false;
+
 // previous
-var previousButtons = document.querySelectorAll('.button-previous');
+// custom dog mark button
+document.querySelector('.button-previous').addEventListener('click', function() {
+	flickity.previous();
+});
+// dragover button function
+var previousButtons = document.querySelectorAll('.previous');
 for (i = 0; i < previousButtons.length; i++) {
-	previousButtons[i].addEventListener('click', function() {
-		flickity.previous();
-	})
+	previousButtons[i].addEventListener('dragover', function(event) {
+		event.preventDefault();
+		if (!dragCD) {
+			flickity.previous();
+			dragCD = true;
+		}
+		window.setTimeout(function() {
+			dragCD = false;
+		}, 1000);
+	});
 }
 
 // next
-var nextButtons = document.querySelectorAll('.button-next');
+// custom dog mark button
+document.querySelector('.button-next').addEventListener('click', function() {
+	flickity.next();
+});
+var nextButtons = document.querySelectorAll('.next');
 for (i = 0; i < nextButtons.length; i++) {
-	nextButtons[i].addEventListener('click', function() {
-		flickity.next();
-	})
+	nextButtons[i].addEventListener('dragover', function(event) {
+		event.preventDefault();
+		if (!dragCD) {
+			flickity.next();
+			dragCD = true;
+		}
+		window.setTimeout(function() {
+			dragCD = false;
+		}, 1000);
+	});
 }
 
 //Set empty containers height to equal other containers' height
