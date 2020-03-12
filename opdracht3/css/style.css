@@ -1,0 +1,45 @@
+html {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  /* https://css-tricks.com/box-sizing/ */ }
+
+*, *:before, *:after {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 0;
+  padding: 0; }
+
+body {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column nowrap;
+          flex-flow: column nowrap;
+  background: #1b1b1b; }
+
+header {
+  font-family: "Raleway", sans-serif; }
+  header .logo {
+    margin: 0;
+    color: #fed32f;
+    font-size: 10vh;
+    text-align: center; }
+  header .categories-list {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-flow: row nowrap;
+            flex-flow: row nowrap;
+    -webkit-box-pack: space-evenly;
+        -ms-flex-pack: space-evenly;
+            justify-content: space-evenly;
+    color: #fdfdfd;
+    font-size: 4vh;
+    list-style: none; }
+    header .categories-list .category-item.is-selected {
+      -webkit-text-decoration: underline #fed32f;
+              text-decoration: underline #fed32f; }
