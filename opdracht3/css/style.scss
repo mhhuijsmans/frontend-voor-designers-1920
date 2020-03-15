@@ -1,12 +1,20 @@
 $black: #1b1b1b;
 $white: #fdfdfd;
 $yellow: #fed32f;
+$gray1: #323232;
+$gray2: #8b8b8b;
 
 $primary: $white;
 $secondary: $yellow;
+$tertiary: $gray1;
+$quaternary: $gray2;
 $bg: $black;
 
 $raleway: 'Raleway', sans-serif;
+$montserrat: 'Montserrat', sans-serif;
+
+$header: $raleway;
+$body: $montserrat;
 
 html {
 	box-sizing: border-box; /* https://css-tricks.com/box-sizing/ */
@@ -21,11 +29,15 @@ html {
 body {
 	display: flex;
 	flex-flow: column nowrap;
+	height: 100vh;
+	font-family: $body;
+	color: $primary;
 	background: $bg;
 }
 
 header {
-	font-family: $raleway;
+	margin-bottom: 3em;
+	font-family: $header;
 
 	.logo {
 		margin: 0;
@@ -34,17 +46,116 @@ header {
 		text-align: center;
 	}
 
-	.categories-list {
+	.genre-list {
 		display: flex;
 		flex-flow: row nowrap;
 		justify-content: space-evenly;
+		padding-top: .5em;
 		color: $primary;
-		font-size: 4vh;
+		font-size: 3vh;
 		list-style: none;
 
-		.category-item {
+		.genre-item {
+			cursor: pointer;
+
 			&.is-selected {
-				text-decoration: underline $secondary;
+				border-bottom: 5px solid $secondary;
+			}
+		}
+	}
+}
+
+main {
+	flex: 0 1 100%;
+
+	.movie-list {
+		height: 100%;
+		list-style: none;
+
+		.movie-item {
+			display: flex;
+			flex-flow: column nowrap;
+			align-items: center;
+			width: 25%;
+			height: 100%;
+			margin: 0 auto;
+
+			.movie-visual {
+				width: 70%;
+				height: 70%;
+				background-repeat: no-repeat;
+				background-size: cover;
+				border-radius: 10px;
+			}
+
+			.movie-data {
+				position: absolute;
+				top: 70%;
+				display: flex;
+				flex-flow: column nowrap;
+				align-items: center;
+				width: 100vw;
+
+				.movie-title {
+					padding-top: 1em;
+					font-family: $header;
+					font-size: 2em;
+				}
+
+				.movie-info {
+					padding-top: 1em;
+					.movie-genres {
+						padding: 0 1em;
+						&:before, &:after {
+							content: "•";
+						}
+
+						&:before {
+							padding-right: 1em;
+						}
+
+						&:after {
+							padding-left: 1em;
+						}
+					}
+				}
+
+				.buttons {
+					padding-top: 2em;
+
+					button {
+						margin: 0 1.5em;
+						padding: 0.75em 1.5em;
+						border: 0;
+						border-radius: 5px;
+						background: $tertiary;
+						color: $primary;
+						font-family: $body;
+						font-size: 1em;
+						font-weight: bold;
+						cursor: pointer;
+
+						&:hover {
+							background: $quaternary;
+						}
+
+						&:focus {
+							outline-color: $secondary;
+						}
+					}
+				}
+			}
+
+			&:not(.is-selected) {
+				.movie-visual {
+					width: 60%;
+					height: 60%;
+					margin-top: 5%;
+				}
+
+				.movie-data {
+					display: none;
+				}
 			}
 		}
 	}

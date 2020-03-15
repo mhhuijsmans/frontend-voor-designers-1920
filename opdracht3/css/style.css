@@ -1,3 +1,4 @@
+@charset "UTF-8";
 html {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -17,16 +18,20 @@ body {
   -webkit-box-direction: normal;
       -ms-flex-flow: column nowrap;
           flex-flow: column nowrap;
+  height: 100vh;
+  font-family: "Montserrat", sans-serif;
+  color: #fdfdfd;
   background: #1b1b1b; }
 
 header {
+  margin-bottom: 3em;
   font-family: "Raleway", sans-serif; }
   header .logo {
     margin: 0;
     color: #fed32f;
     font-size: 10vh;
     text-align: center; }
-  header .categories-list {
+  header .genre-list {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -37,9 +42,90 @@ header {
     -webkit-box-pack: space-evenly;
         -ms-flex-pack: space-evenly;
             justify-content: space-evenly;
+    padding-top: .5em;
     color: #fdfdfd;
-    font-size: 4vh;
+    font-size: 3vh;
     list-style: none; }
-    header .categories-list .category-item.is-selected {
-      -webkit-text-decoration: underline #fed32f;
-              text-decoration: underline #fed32f; }
+    header .genre-list .genre-item {
+      cursor: pointer; }
+      header .genre-list .genre-item.is-selected {
+        border-bottom: 5px solid #fed32f; }
+
+main {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 1 100%;
+          flex: 0 1 100%; }
+  main .movie-list {
+    height: 100%;
+    list-style: none; }
+    main .movie-list .movie-item {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+          -ms-flex-flow: column nowrap;
+              flex-flow: column nowrap;
+      -webkit-box-align: center;
+          -ms-flex-align: center;
+              align-items: center;
+      width: 25%;
+      height: 100%;
+      margin: 0 auto; }
+      main .movie-list .movie-item .movie-visual {
+        width: 70%;
+        height: 70%;
+        background-repeat: no-repeat;
+        background-size: cover;
+        border-radius: 10px; }
+      main .movie-list .movie-item .movie-data {
+        position: absolute;
+        top: 70%;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+            -ms-flex-flow: column nowrap;
+                flex-flow: column nowrap;
+        -webkit-box-align: center;
+            -ms-flex-align: center;
+                align-items: center;
+        width: 100vw; }
+        main .movie-list .movie-item .movie-data .movie-title {
+          padding-top: 1em;
+          font-family: "Raleway", sans-serif;
+          font-size: 2em; }
+        main .movie-list .movie-item .movie-data .movie-info {
+          padding-top: 1em; }
+          main .movie-list .movie-item .movie-data .movie-info .movie-genres {
+            padding: 0 1em; }
+            main .movie-list .movie-item .movie-data .movie-info .movie-genres:before, main .movie-list .movie-item .movie-data .movie-info .movie-genres:after {
+              content: "•"; }
+            main .movie-list .movie-item .movie-data .movie-info .movie-genres:before {
+              padding-right: 1em; }
+            main .movie-list .movie-item .movie-data .movie-info .movie-genres:after {
+              padding-left: 1em; }
+        main .movie-list .movie-item .movie-data .buttons {
+          padding-top: 2em; }
+          main .movie-list .movie-item .movie-data .buttons button {
+            margin: 0 1.5em;
+            padding: 0.75em 1.5em;
+            border: 0;
+            border-radius: 5px;
+            background: #323232;
+            color: #fdfdfd;
+            font-family: "Montserrat", sans-serif;
+            font-size: 1em;
+            font-weight: bold;
+            cursor: pointer; }
+            main .movie-list .movie-item .movie-data .buttons button:hover {
+              background: #8b8b8b; }
+            main .movie-list .movie-item .movie-data .buttons button:focus {
+              outline-color: #fed32f; }
+      main .movie-list .movie-item:not(.is-selected) .movie-visual {
+        width: 60%;
+        height: 60%;
+        margin-top: 5%; }
+      main .movie-list .movie-item:not(.is-selected) .movie-data {
+        display: none; }
