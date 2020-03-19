@@ -20,7 +20,7 @@ request.addEventListener("load", function(){
 	})
 
 	var genreArray = Array.from(genreSet).sort();
-	genreArray.unshift("All", "Favorites");
+	genreArray.unshift("All");
 	createFilters(genreArray, data);
 	createMovies(data);
 	createCarousel(data);
@@ -65,7 +65,11 @@ function createFilters(filters, data) {
 			li.classList.add('is-selected');
 		}
 		span.addEventListener('click', function(e) {
-			var filter = e.target.closest('.genre-item').textContent;
+			var currentFilter = document.querySelector('.genre-item.is-selected');
+			currentFilter.classList.remove('is-selected');
+			var target = e.target.closest('.genre-item');
+			target.classList.add('is-selected');
+			var filter = target.textContent;
 			filterMovies(filter, data);
 		})
 		li.appendChild(span);
@@ -142,9 +146,9 @@ function filterMovies(filter, data) {
 			movies[i].classList.add('filter-active');
 		}
 		//todo: favorites
-		else if (filter == 'Favorites') {
-			movies[i].classList.add('filter-active');
-		}
+		// else if (filter == 'Favorites') {
+		// 
+		// }
 		else {
 			if (movies[i].getAttribute('data-genres').includes(filter)) {
 				movies[i].classList.add('filter-active');
