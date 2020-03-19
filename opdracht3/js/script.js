@@ -87,6 +87,26 @@ function createMovies(data) {
 		img.classList.add('movie-visual');
 		img.src = data[i].cover;
 
+		var play = document.createElement('div');
+		play.classList.add('movie-play');
+
+		var svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+		svg.setAttribute('viewBox', '0 0 512 512')
+		var path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+		path.setAttribute('d', 'M256,0C114.8,0,0,114.8,0,256s114.8,256,256,256s256-114.8,256-256S397.2,0,256,0z M357.8,265l-149.3,96c-1.8,1.1-3.8,1.7-5.8,1.7c-1.8,0-3.5-0.4-5.1-1.3c-3.4-1.9-5.6-5.5-5.6-9.4V160c0-3.9,2.1-7.5,5.6-9.4c3.4-1.9,7.6-1.7,10.9,0.4l149.3,96c3,2,4.9,5.3,4.9,9C362.7,259.6,360.8,263,357.8,265z');
+		path.classList.add('bg');
+		var path2 = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+		path2.setAttribute('d', 'M357.8,247l-149.3-96c-3.3-2.1-7.5-2.3-10.9-0.4c-3.5,1.9-5.6,5.5-5.6,9.4v192c0,3.9,2.2,7.5,5.6,9.4c1.6,0.9,3.3,1.3,5.1,1.3c2,0,4-0.6,5.8-1.7l149.3-96c3-2,4.9-5.4,4.9-9C362.7,252.3,360.8,249,357.8,247z');
+		path2.classList.add('play');
+		svg.appendChild(path);
+		svg.appendChild(path2);
+		play.appendChild(svg);
+
+		svg.addEventListener('click', function(e) {
+			alert('If I had the rights to this movie, I would play it for you... You can watch the trailer though!');
+		});
+
+		li.append(play);
 		li.appendChild(img);
 		ul.appendChild(li);
 	}

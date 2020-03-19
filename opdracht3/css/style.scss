@@ -102,12 +102,45 @@ main {
 			height: 100%;
 			margin: 0 2em;
 
+			.movie-visual {
+				border-radius: 10px;
+			}
+
+			.movie-play {
+				position: absolute;
+				bottom: 3%;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				width: 100%;
+
+				svg {
+					width: 75px;
+					height: 75px;
+					fill: $primary;
+					border: 10px solid $bg;
+					border-radius: 100%;
+
+					&:hover {
+						border: 8px solid $bg;
+					}
+				}
+
+				.bg {
+					fill: $secondary;
+				}
+
+				.play {
+					fill: $primary;
+				}
+			}
+
 			&.is-selected {
 				top: 5%;
 				opacity: 1;
 				transition: top .3s ease-in, opacity .7s ease-in;
 				.movie-visual {
-					height: 95%;
+					height: 92%;
 				}
 			}
 
@@ -117,14 +150,13 @@ main {
 				.movie-visual {
 					height: 90%;
 				}
+				.movie-play {
+					display: none;
+				}
 			}
 
 			&:not(.filter-active) {
 				display: none;
-			}
-
-			.movie-visual {
-				border-radius: 10px;
 			}
 		}
 	}
