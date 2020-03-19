@@ -45,6 +45,7 @@ header {
     padding-top: .5em;
     color: #fdfdfd;
     font-size: 3vh;
+    font-weight: 600;
     list-style: none; }
     header .genre-list .genre-item {
       cursor: pointer; }
@@ -57,7 +58,10 @@ main {
           flex: 0 1 100%; }
   main .movie-list {
     height: 100%;
-    list-style: none; }
+    list-style: none;
+    max-height: 750px; }
+    main .movie-list .flickity-viewport {
+      height: 100% !important; }
     main .movie-list .movie-item {
       display: -webkit-box;
       display: -ms-flexbox;
@@ -69,18 +73,17 @@ main {
       -webkit-box-align: center;
           -ms-flex-align: center;
               align-items: center;
-      width: 25%;
+      width: 22.5%;
       height: 100%;
       margin: 0 auto; }
       main .movie-list .movie-item .movie-visual {
-        width: 70%;
-        height: 70%;
-        background-repeat: no-repeat;
-        background-size: cover;
+        width: auto;
+        max-width: 95%;
+        height: calc(100% - 200px);
         border-radius: 10px; }
       main .movie-list .movie-item .movie-data {
         position: absolute;
-        top: 70%;
+        bottom: 0;
         display: -webkit-box;
         display: -ms-flexbox;
         display: flex;
@@ -91,11 +94,13 @@ main {
         -webkit-box-align: center;
             -ms-flex-align: center;
                 align-items: center;
-        width: 100vw; }
+        width: 100vw;
+        height: 200px; }
         main .movie-list .movie-item .movie-data .movie-title {
           padding-top: 1em;
           font-family: "Raleway", sans-serif;
-          font-size: 2em; }
+          font-size: 2em;
+          font-weight: 600; }
         main .movie-list .movie-item .movie-data .movie-info {
           padding-top: 1em; }
           main .movie-list .movie-item .movie-data .movie-info .movie-genres {
@@ -124,8 +129,8 @@ main {
             main .movie-list .movie-item .movie-data .buttons button:focus {
               outline-color: #fed32f; }
       main .movie-list .movie-item:not(.is-selected) .movie-visual {
-        width: 60%;
-        height: 60%;
+        width: auto;
+        height: calc(90% - 200px);
         margin-top: 5%; }
       main .movie-list .movie-item:not(.is-selected) .movie-data {
         display: none; }

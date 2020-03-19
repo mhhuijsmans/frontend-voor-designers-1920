@@ -1,4 +1,5 @@
 var url = "https://koopreynders.github.io/frontendvoordesigners/opdracht3/json/movies.json";
+var flickity;
 
 var request = new XMLHttpRequest();
 request.open('get', url);
@@ -23,12 +24,12 @@ request.addEventListener("load", function(){
 	createFilters(genreArray);
 	createMovies(data);
 
-	var flickity = new Flickity( '.movie-list', {
-			wrapAround: true,
-			cellAlign: 'center',
-			prevNextButtons: false,
-			pageDots: false
-		});
+	flickity = new Flickity( '.movie-list', {
+		wrapAround: true,
+		cellAlign: 'center',
+		prevNextButtons: false,
+		pageDots: false
+	});
 });
 
 function createFilters(data) {
@@ -52,9 +53,9 @@ function createMovies(data) {
 		var li = document.createElement('li');
 		li.classList.add('movie-item');
 
-		var divVis = document.createElement('div');
-		divVis.classList.add('movie-visual');
-		divVis.style.backgroundImage = 'url(' + data[i].cover + ')';
+		var img = document.createElement('img');
+		img.classList.add('movie-visual');
+		img.src = data[i].cover;
 
 		var divData = document.createElement('div');
 		divData.classList.add('movie-data');
@@ -98,7 +99,7 @@ function createMovies(data) {
 		divData.appendChild(spanTitle);
 		divData.appendChild(divInfo);
 		divData.appendChild(divButtons);
-		li.appendChild(divVis);
+		li.appendChild(img);
 		li.appendChild(divData);
 		ul.appendChild(li);
 	}

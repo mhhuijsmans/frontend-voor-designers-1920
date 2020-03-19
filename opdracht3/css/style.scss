@@ -16,6 +16,8 @@ $montserrat: 'Montserrat', sans-serif;
 $header: $raleway;
 $body: $montserrat;
 
+$dataheight: 200px;
+
 html {
 	box-sizing: border-box; /* https://css-tricks.com/box-sizing/ */
 }
@@ -53,6 +55,7 @@ header {
 		padding-top: .5em;
 		color: $primary;
 		font-size: 3vh;
+		font-weight: 600;
 		list-style: none;
 
 		.genre-item {
@@ -71,35 +74,41 @@ main {
 	.movie-list {
 		height: 100%;
 		list-style: none;
+		max-height: 750px;
+
+		.flickity-viewport {
+			height: 100% !important;
+		}
 
 		.movie-item {
 			display: flex;
 			flex-flow: column nowrap;
 			align-items: center;
-			width: 25%;
+			width: 22.5%;
 			height: 100%;
 			margin: 0 auto;
 
 			.movie-visual {
-				width: 70%;
-				height: 70%;
-				background-repeat: no-repeat;
-				background-size: cover;
+				width: auto;
+				max-width: 95%;
+				height: calc(100% - #{$dataheight});
 				border-radius: 10px;
 			}
 
 			.movie-data {
 				position: absolute;
-				top: 70%;
+				bottom: 0;
 				display: flex;
 				flex-flow: column nowrap;
 				align-items: center;
 				width: 100vw;
+				height: $dataheight;
 
 				.movie-title {
 					padding-top: 1em;
 					font-family: $header;
 					font-size: 2em;
+					font-weight: 600;
 				}
 
 				.movie-info {
@@ -148,8 +157,8 @@ main {
 
 			&:not(.is-selected) {
 				.movie-visual {
-					width: 60%;
-					height: 60%;
+					width: auto;
+					height: calc(90% - #{$dataheight});
 					margin-top: 5%;
 				}
 
