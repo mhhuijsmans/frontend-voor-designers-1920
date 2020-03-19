@@ -16,7 +16,7 @@ $montserrat: 'Montserrat', sans-serif;
 $header: $raleway;
 $body: $montserrat;
 
-$dataheight: 300px;
+$dataheight: 250px;
 
 html {
 	box-sizing: border-box; /* https://css-tricks.com/box-sizing/ */
@@ -38,31 +38,47 @@ body {
 }
 
 header {
-	margin-bottom: 3em;
+	margin-bottom: 2.5em;
 	font-family: $header;
 
 	.logo {
 		margin: 0;
 		color: $secondary;
-		font-size: 10vh;
+		font-size: 5em;
 		text-align: center;
+	}
+
+	.hamburger {
+		display: none;
 	}
 
 	.genre-list {
 		display: flex;
-		flex-flow: row nowrap;
+		flex-flow: row wrap;
 		justify-content: space-evenly;
-		padding-top: .5em;
+		padding: .5em .5em 0;
 		color: $primary;
-		font-size: 3vh;
+		font-size: 1.5em;
 		font-weight: 600;
 		list-style: none;
+		text-align: center;
 
 		.genre-item {
+			margin: 0 .5em .5em;
 			cursor: pointer;
 
 			&.is-selected {
-				border-bottom: 5px solid $secondary;
+				span {
+					border-bottom: 5px solid $secondary;
+				}
+			}
+
+			&:first-of-type {
+				margin-left: 0;
+			}
+
+			&:last-of-type {
+				margin-right: 0;
 			}
 		}
 	}
@@ -110,8 +126,9 @@ main {
 		display: flex;
 		flex-flow: column nowrap;
 		align-items: center;
-		width: 100vw;
+		width: 100%;
 		height: $dataheight;
+		text-align: center;
 
 		.movie-title {
 			padding-top: 1em;
@@ -122,6 +139,7 @@ main {
 
 		.movie-info {
 			padding-top: 1em;
+			font-size: 1em;
 			.movie-genres {
 				padding: 0 1em;
 				&:before, &:after {
@@ -159,6 +177,76 @@ main {
 
 				&:focus {
 					outline-color: $secondary;
+				}
+			}
+		}
+	}
+}
+
+@media (max-width: 500px) {
+	header {
+		.genre-list {
+			height: 0;
+			overflow: hidden;
+		}
+
+		.hamburger {
+			position: absolute;
+			top: 37px;
+			right: 20px;
+			display: block;
+			height: 5em;
+			cursor: pointer;
+
+			.bar1, .bar2, .bar3 {
+				width: 35px;
+				height: 5px;
+				background-color: $secondary;
+				margin: 6px 0;
+				transition: transform .4s;
+			}
+
+			&.is-active {
+				.bar1 {
+					transform: rotate(-45deg) translate(-9px, 6px);
+				}
+
+				.bar2 {
+					opacity: 0;
+				}
+
+				.bar3 {
+					transform: rotate(45deg) translate(-8px, -8px);
+				}
+
+				& + .genre-list {
+					height: auto;
+				}
+			}
+		}
+
+		.genre-list {
+			.genre-item {
+				width: 50%;
+				margin: 0;
+				padding-bottom: .5em;
+				font-size: .8em;
+			}
+		}
+	}
+	main {
+		.movie-data {
+			.movie-title {
+				font-size: 1.5em;
+			}
+
+			.movie-info {
+				font-size: .8em;
+			}
+
+			.buttons {
+				button {
+					font-size: .8em;
 				}
 			}
 		}

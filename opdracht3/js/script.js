@@ -41,6 +41,12 @@ request.addEventListener("load", function(){
 		flickity.reposition();
 		editMovieInfo(data, i)
 	});
+
+	var hamburger = document.querySelector('.hamburger');
+	hamburger.addEventListener('click', function() {
+		hamburger.classList.toggle('is-active');
+		flickity.reposition();
+	});
 });
 
 function createFilters(data) {
@@ -48,11 +54,13 @@ function createFilters(data) {
 
 	for (i = 0; i < data.length; i++) {
 		var li = document.createElement('li');
-		li.textContent = data[i];
+		var span = document.createElement('span');
+		span.textContent = data[i];
 		li.classList.add('genre-item');
 		if (i == 0) {
 			li.classList.add('is-selected');
 		}
+		li.appendChild(span);
 		ul.appendChild(li);
 	}
 }
