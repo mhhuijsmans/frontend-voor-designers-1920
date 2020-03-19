@@ -96,8 +96,6 @@ main {
 			}
 
 			.movie-data {
-				position: absolute;
-				bottom: 0;
 				display: flex;
 				flex-flow: column nowrap;
 				align-items: center;
@@ -159,11 +157,11 @@ main {
 				.movie-visual {
 					width: auto;
 					height: calc(90% - #{$dataheight});
-					margin-top: 5%;
+					margin: auto 0;
 				}
 
 				.movie-data {
-					display: none;
+					visibility: hidden;
 				}
 			}
 		}

@@ -82,8 +82,6 @@ main {
         height: calc(100% - 200px);
         border-radius: 10px; }
       main .movie-list .movie-item .movie-data {
-        position: absolute;
-        bottom: 0;
         display: -webkit-box;
         display: -ms-flexbox;
         display: flex;
@@ -131,6 +129,6 @@ main {
       main .movie-list .movie-item:not(.is-selected) .movie-visual {
         width: auto;
         height: calc(90% - 200px);
-        margin-top: 5%; }
+        margin: auto 0; }
       main .movie-list .movie-item:not(.is-selected) .movie-data {
-        display: none; }
+        visibility: hidden; }
