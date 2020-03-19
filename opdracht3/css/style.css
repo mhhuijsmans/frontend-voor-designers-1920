@@ -248,11 +248,15 @@ main {
               transform: rotate(45deg) translate(-9px, -8px); }
     header .hamburger.is-active + .genre-list {
       height: auto; }
-  header .genre-list .genre-item {
-    width: 50%;
-    margin: 0;
-    padding-bottom: .5em;
-    font-size: .8em; }
+  header .genre-list {
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start; }
+    header .genre-list .genre-item {
+      width: 50%;
+      margin: 0;
+      padding-bottom: .5em;
+      font-size: .8em; }
 
   main .movie-list {
     height: calc( 100% - 250px); }
