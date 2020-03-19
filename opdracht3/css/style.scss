@@ -17,6 +17,7 @@ $header: $raleway;
 $body: $montserrat;
 
 $dataheight: 250px;
+$dataheightmobile: 200px;
 
 html {
 	box-sizing: border-box; /* https://css-tricks.com/box-sizing/ */
@@ -86,7 +87,6 @@ header {
 
 main {
 	flex: 0 1 100%;
-
 	.movie-list {
 		height: calc( 100% - #{$dataheight});
 		list-style: none;
@@ -235,7 +235,12 @@ main {
 		}
 	}
 	main {
+		.movie-list {
+			height: calc( 100% - #{$dataheightmobile});
+		}
 		.movie-data {
+			height: $dataheightmobile;
+			
 			.movie-title {
 				font-size: 1.5em;
 			}

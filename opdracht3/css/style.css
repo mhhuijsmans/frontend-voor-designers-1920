@@ -171,9 +171,13 @@ main {
     padding-bottom: .5em;
     font-size: .8em; }
 
-  main .movie-data .movie-title {
-    font-size: 1.5em; }
-  main .movie-data .movie-info {
-    font-size: .8em; }
-  main .movie-data .buttons button {
-    font-size: .8em; } }
+  main .movie-list {
+    height: calc( 100% - 200px); }
+  main .movie-data {
+    height: 200px; }
+    main .movie-data .movie-title {
+      font-size: 1.5em; }
+    main .movie-data .movie-info {
+      font-size: .8em; }
+    main .movie-data .buttons button {
+      font-size: .8em; } }
