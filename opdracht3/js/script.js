@@ -145,6 +145,7 @@ function editMovieInfo(data, i) {
 	var genres = document.querySelector('.movie-genres');
 	var time = document.querySelector('.movie-time');
 	var video = document.querySelector('.lightbox-video');
+	//todo: actual trailer links
 
 	title.textContent = data[i].title;
 	plot.textContent = data[i].simple_plot;
