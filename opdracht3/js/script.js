@@ -47,6 +47,27 @@ request.addEventListener("load", function(){
 		hamburger.classList.toggle('is-active');
 		flickity.reposition();
 	});
+
+	var videoBox = document.querySelector('.lightbox-video');
+	var video = document.querySelector('.lightbox-video video');
+	var trailerBtn = document.querySelector('.btn-trailer');
+	trailerBtn.addEventListener('click', function() {
+		videoBox.classList.add('is-active');
+		video.play();
+	});
+
+	var details = document.querySelector('.movie-details');
+
+	var closeLightbox = document.querySelectorAll('.js-close-lightbox');
+	for (i = 0; i < closeLightbox.length; i++) {
+		closeLightbox[i].addEventListener('click', function(e) {
+			var lightbox = e.target.closest('.lightbox')
+			lightbox.classList.remove('is-active');
+			if (lightbox.classList.contains('lightbox-video')) {
+				video.pause();
+			}
+		});
+	}
 });
 
 function createFilters(data) {
@@ -83,13 +104,14 @@ function createCarousel(data) {
 
 function editMovieInfo(data, i) {
 	var title = document.querySelector('.movie-title');
+	var plot = document.querySelector('.movie-simple-plot');
 	var year = document.querySelector('.movie-year');
 	var genres = document.querySelector('.movie-genres');
 	var time = document.querySelector('.movie-time');
-	var trailer = document.querySelector('.movie-trailer');
-	var details = document.querySelector('.movie-details');
+	var video = document.querySelector('.lightbox-video');
 
 	title.textContent = data[i].title;
+	plot.textContent = data[i].simple_plot;
 	var date = new Date(data[i].release_date);
 	year.textContent = date.getFullYear();
 	genres.textContent = data[i].genres.join(' / ');

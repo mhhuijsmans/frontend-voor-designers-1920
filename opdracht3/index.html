@@ -25,16 +25,29 @@
 		</ul>
 		<div class="movie-data">
 			<span class="movie-title"></span>
+			<span class="movie-simple-plot"></span>
 			<div class="movie-info">
 				<span class="movie-year"></span>
 				<span class="movie-genres"></span>
 				<span class="movie-time"></span>
 			</div>
 			<div class="buttons">
-				<button class="movie-trailer">Trailer</button>
-				<button class="movie-details">Details</button>
+				<button class="btn-trailer">Trailer</button>
+				<button class="btn-details">Details</button>
 			</div>
 		</div>
+
+		<div class="lightbox lightbox-video">
+			<div class="cross js-close-lightbox">
+				<div class="bar1"></div>
+				<div class="bar2"></div>
+			</div>
+			<video controls>
+				<source src="https://imdb-video.media-imdb.com/vi2732631577/MV5BNjA4MzMxMTg0N15BMTFeQW1wNF5BbWU3MDk3MDgzMzk@.mp4?Expires=1584722045&Signature=HM4Awgwpf79keEILh3~dODYDMzMmAAOqTZ9ndaZLxg3RbkkpwnztY-9LmTggMAVzrzjAZqm1jlmesqxDFutGa7voUHBiw1lK9LiEhvpc9oGaU70yRXjydaih8xzxlPAGGTrr3xleXG883~WvSx20nvIclfuP1uIiTDeMfAPU27U6mRAzKkp~uGXgPFXGT7yloZJwBR686ACaR35AqF6sAnefp5P7J82tgdJGVrlMXKyDxHW5MJqQmCXm4eoedlO7jhMnuvsJ~OivKZKSSbYZGzyc38Xs-YahidBwxfEiK1JJBKqE434gettEXIShrybQeJk4YL2gF75XltaWxFsMDg__&Key-Pair-Id=APKAIFLZBVQZ24NQH3KA" type="video/mp4">
+				Your browser does not support HTML5 video.
+			</video>
+		</div>
+		<div class="lightbox lightbox-details"></div>
 	</main>
 	<script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
 	<script src="js/script.js" type="text/javascript"></script>
