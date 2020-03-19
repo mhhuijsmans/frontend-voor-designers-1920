@@ -85,6 +85,8 @@ main {
         opacity: .3; }
         main .movie-list .movie-item:not(.is-selected) .movie-visual {
           height: 90%; }
+      main .movie-list .movie-item:not(.filter-active) {
+        display: none; }
       main .movie-list .movie-item .movie-visual {
         border-radius: 10px; }
   main .movie-data {

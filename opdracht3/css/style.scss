@@ -119,6 +119,10 @@ main {
 				}
 			}
 
+			&:not(.filter-active) {
+				display: none;
+			}
+
 			.movie-visual {
 				border-radius: 10px;
 			}

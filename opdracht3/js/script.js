@@ -21,26 +21,9 @@ request.addEventListener("load", function(){
 
 	var genreArray = Array.from(genreSet).sort();
 	genreArray.unshift("All", "Favorites");
-	createFilters(genreArray);
+	createFilters(genreArray, data);
+	createMovies(data);
 	createCarousel(data);
-
-	flickity = new Flickity( '.movie-list', {
-		wrapAround: true,
-		cellAlign: 'center',
-		prevNextButtons: false,
-		pageDots: false,
-		imagesLoaded: true,
-		on: {
-			ready: function() {
-				editMovieInfo(data, 0);
-			}
-		}
-	});
-
-	flickity.on('change', function(i) {
-		flickity.reposition();
-		editMovieInfo(data, i)
-	});
 
 	var hamburger = document.querySelector('.hamburger');
 	hamburger.addEventListener('click', function() {
@@ -70,28 +53,35 @@ request.addEventListener("load", function(){
 	}
 });
 
-function createFilters(data) {
+function createFilters(filters, data) {
 	var ul = document.querySelector('.genre-list');
 
-	for (i = 0; i < data.length; i++) {
+	for (i = 0; i < filters.length; i++) {
 		var li = document.createElement('li');
 		var span = document.createElement('span');
-		span.textContent = data[i];
+		span.textContent = filters[i];
 		li.classList.add('genre-item');
 		if (i == 0) {
 			li.classList.add('is-selected');
 		}
+		span.addEventListener('click', function(e) {
+			var filter = e.target.closest('.genre-item').textContent;
+			filterMovies(filter, data);
+		})
 		li.appendChild(span);
 		ul.appendChild(li);
 	}
 }
 
-function createCarousel(data) {
+function createMovies(data) {
 	var ul = document.querySelector('.movie-list')
 
 	for (i = 0; i < data.length; i++) {
 		var li = document.createElement('li');
 		li.classList.add('movie-item');
+		li.classList.add('filter-active');
+		li.setAttribute('data-id', i);
+		li.setAttribute('data-genres', data[i].genres);
 
 		var img = document.createElement('img');
 		img.classList.add('movie-visual');
@@ -102,7 +92,53 @@ function createCarousel(data) {
 	}
 }
 
+function createCarousel(data) {
+	flickity = new Flickity( '.movie-list', {
+		// wrapAround: true,
+		cellAlign: 'center',
+		prevNextButtons: false,
+		pageDots: false,
+		imagesLoaded: true,
+		cellSelector: '.filter-active',
+		on: {
+			ready: function() {
+				editMovieInfo(data, getCurrentMovieID());
+			},
+			change: function() {
+				editMovieInfo(data, getCurrentMovieID());
+				flickity.reposition();
+			}
+		}
+	});
+}
+
+function filterMovies(filter, data) {
+	var movies = document.querySelectorAll('.movie-item');
+
+	for (i = 0; i < movies.length; i++) {
+		movies[i].classList.remove('filter-active');
+
+		if (filter == 'All') {
+			movies[i].classList.add('filter-active');
+		}
+		//todo: favorites
+		else if (filter == 'Favorites') {
+			movies[i].classList.add('filter-active');
+		}
+		else {
+			if (movies[i].getAttribute('data-genres').includes(filter)) {
+				movies[i].classList.add('filter-active');
+			}
+		}
+	}
+
+	flickity.destroy();
+	createCarousel(data);
+	flickity.reposition();
+}
+
 function editMovieInfo(data, i) {
+
 	var title = document.querySelector('.movie-title');
 	var plot = document.querySelector('.movie-simple-plot');
 	var year = document.querySelector('.movie-year');
@@ -116,4 +152,10 @@ function editMovieInfo(data, i) {
 	year.textContent = date.getFullYear();
 	genres.textContent = data[i].genres.join(' / ');
 	time.textContent = "2hr13mins";
+}
+
+function getCurrentMovieID() {
+	var currentEl = document.querySelector('.movie-item.is-selected').getAttribute('data-id');
+
+	return currentEl;
 }
