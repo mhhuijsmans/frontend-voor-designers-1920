@@ -240,7 +240,7 @@ main {
 		}
 		.movie-data {
 			height: $dataheightmobile;
-			
+
 			.movie-title {
 				font-size: 1.5em;
 			}
@@ -254,6 +254,15 @@ main {
 					font-size: .8em;
 				}
 			}
+		}
+	}
+}
+
+@media (max-width: 400px) {
+	header {
+		.logo {
+			margin-top: .5em;
+			font-size: 3em;
 		}
 	}
 }

@@ -181,3 +181,7 @@ main {
       font-size: .8em; }
     main .movie-data .buttons button {
       font-size: .8em; } }
+@media (max-width: 400px) {
+  header .logo {
+    margin-top: .5em;
+    font-size: 3em; } }
