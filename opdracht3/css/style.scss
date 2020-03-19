@@ -16,7 +16,7 @@ $montserrat: 'Montserrat', sans-serif;
 $header: $raleway;
 $body: $montserrat;
 
-$dataheight: 200px;
+$dataheight: 300px;
 
 html {
 	box-sizing: border-box; /* https://css-tricks.com/box-sizing/ */
@@ -72,7 +72,7 @@ main {
 	flex: 0 1 100%;
 
 	.movie-list {
-		height: 100%;
+		height: calc( 100% - #{$dataheight});
 		list-style: none;
 		max-height: 750px;
 
@@ -81,87 +81,84 @@ main {
 		}
 
 		.movie-item {
-			display: flex;
-			flex-flow: column nowrap;
-			align-items: center;
-			width: 22.5%;
 			height: 100%;
-			margin: 0 auto;
+			margin: 0 2em;
 
-			.movie-visual {
-				width: auto;
-				max-width: 95%;
-				height: calc(100% - #{$dataheight});
-				border-radius: 10px;
-			}
-
-			.movie-data {
-				display: flex;
-				flex-flow: column nowrap;
-				align-items: center;
-				width: 100vw;
-				height: $dataheight;
-
-				.movie-title {
-					padding-top: 1em;
-					font-family: $header;
-					font-size: 2em;
-					font-weight: 600;
-				}
-
-				.movie-info {
-					padding-top: 1em;
-					.movie-genres {
-						padding: 0 1em;
-						&:before, &:after {
-							content: "•";
-						}
-
-						&:before {
-							padding-right: 1em;
-						}
-
-						&:after {
-							padding-left: 1em;
-						}
-					}
-				}
-
-				.buttons {
-					padding-top: 2em;
-
-					button {
-						margin: 0 1.5em;
-						padding: 0.75em 1.5em;
-						border: 0;
-						border-radius: 5px;
-						background: $tertiary;
-						color: $primary;
-						font-family: $body;
-						font-size: 1em;
-						font-weight: bold;
-						cursor: pointer;
-
-						&:hover {
-							background: $quaternary;
-						}
-
-						&:focus {
-							outline-color: $secondary;
-						}
-					}
+			&.is-selected {
+				top: 5%;
+				opacity: 1;
+				transition: top .3s ease-in, opacity .7s ease-in;
+				.movie-visual {
+					height: 95%;
 				}
 			}
 
 			&:not(.is-selected) {
+				top: 0;
+				opacity: .3;
 				.movie-visual {
-					width: auto;
-					height: calc(90% - #{$dataheight});
-					margin: auto 0;
+					height: 90%;
+				}
+			}
+
+			.movie-visual {
+				border-radius: 10px;
+			}
+		}
+	}
+	.movie-data {
+		display: flex;
+		flex-flow: column nowrap;
+		align-items: center;
+		width: 100vw;
+		height: $dataheight;
+
+		.movie-title {
+			padding-top: 1em;
+			font-family: $header;
+			font-size: 2em;
+			font-weight: 600;
+		}
+
+		.movie-info {
+			padding-top: 1em;
+			.movie-genres {
+				padding: 0 1em;
+				&:before, &:after {
+					content: "•";
 				}
 
-				.movie-data {
-					visibility: hidden;
+				&:before {
+					padding-right: 1em;
+				}
+
+				&:after {
+					padding-left: 1em;
+				}
+			}
+		}
+
+		.buttons {
+			padding-top: 2em;
+
+			button {
+				margin: 0 1.5em;
+				padding: 0.75em 1.5em;
+				border: 0;
+				border-radius: 5px;
+				background: $tertiary;
+				color: $primary;
+				font-family: $body;
+				font-size: 1em;
+				font-weight: bold;
+				cursor: pointer;
+
+				&:hover {
+					background: $quaternary;
+				}
+
+				&:focus {
+					outline-color: $secondary;
 				}
 			}
 		}

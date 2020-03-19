@@ -22,13 +22,24 @@ request.addEventListener("load", function(){
 	var genreArray = Array.from(genreSet).sort();
 	genreArray.unshift("All", "Favorites");
 	createFilters(genreArray);
-	createMovies(data);
+	createCarousel(data);
 
 	flickity = new Flickity( '.movie-list', {
 		wrapAround: true,
 		cellAlign: 'center',
 		prevNextButtons: false,
-		pageDots: false
+		pageDots: false,
+		imagesLoaded: true,
+		on: {
+			ready: function() {
+				editMovieInfo(data, 0);
+			}
+		}
+	});
+
+	flickity.on('change', function(i) {
+		flickity.reposition();
+		editMovieInfo(data, i)
 	});
 });
 
@@ -46,7 +57,7 @@ function createFilters(data) {
 	}
 }
 
-function createMovies(data) {
+function createCarousel(data) {
 	var ul = document.querySelector('.movie-list')
 
 	for (i = 0; i < data.length; i++) {
@@ -57,50 +68,22 @@ function createMovies(data) {
 		img.classList.add('movie-visual');
 		img.src = data[i].cover;
 
-		var divData = document.createElement('div');
-		divData.classList.add('movie-data');
-
-		var spanTitle = document.createElement('span');
-		spanTitle.classList.add('movie-title');
-		spanTitle.textContent = data[i].title;
-
-		var divInfo = document.createElement('div');
-		divInfo.classList.add('movie-info');
-
-		var date = new Date(data[i].release_date);
-		var spanYear = document.createElement('span');
-		spanYear.classList.add('movie-year');
-		spanYear.textContent = date.getFullYear();
-
-		var spanGenres = document.createElement('span');
-		spanGenres.classList.add('movie-genres');
-		spanGenres.textContent = data[i].genres.join(' / ');
-
-		var spanTime = document.createElement('span');
-		spanTime.classList.add('movie-time');
-		spanTime.textContent = "2hr13mins";
-
-		var divButtons = document.createElement('div');
-		divButtons.classList.add('buttons');
-
-		var buttonTrailer = document.createElement('button');
-		buttonTrailer.classList.add('movie-trailer');
-		buttonTrailer.textContent = "Trailer";
-
-		var buttonDetails = document.createElement('button');
-		buttonDetails.classList.add('movie-details');
-		buttonDetails.textContent = "Details";
-
-		divButtons.appendChild(buttonTrailer);
-		divButtons.appendChild(buttonDetails);
-		divInfo.appendChild(spanYear);
-		divInfo.appendChild(spanGenres);
-		divInfo.appendChild(spanTime);
-		divData.appendChild(spanTitle);
-		divData.appendChild(divInfo);
-		divData.appendChild(divButtons);
 		li.appendChild(img);
-		li.appendChild(divData);
 		ul.appendChild(li);
 	}
+}
+
+function editMovieInfo(data, i) {
+	var title = document.querySelector('.movie-title');
+	var year = document.querySelector('.movie-year');
+	var genres = document.querySelector('.movie-genres');
+	var time = document.querySelector('.movie-time');
+	var trailer = document.querySelector('.movie-trailer');
+	var details = document.querySelector('.movie-details');
+
+	title.textContent = data[i].title;
+	var date = new Date(data[i].release_date);
+	year.textContent = date.getFullYear();
+	genres.textContent = data[i].genres.join(' / ');
+	time.textContent = "2hr13mins";
 }
