@@ -108,6 +108,29 @@ main {
 				border-radius: 10px;
 			}
 
+			.movie-fav {
+				position: absolute;
+				top: 2%;
+				right: 2%;
+
+				svg {
+					width: 35px;
+					height: 35px;
+
+					.heart {
+						fill: $primary;
+						stroke: $secondary;
+						stroke-width: 50;
+					}
+
+					&:hover {
+						.heart {
+							stroke-width: 75;
+						}
+					}
+				}
+			}
+
 			.movie-play {
 				position: absolute;
 				bottom: 4%;
@@ -119,21 +142,20 @@ main {
 				svg {
 					width: 75px;
 					height: 75px;
-					fill: $primary;
 					border: 10px solid $bg;
 					border-radius: 100%;
 
 					&:hover {
 						border: 8px solid $bg;
 					}
-				}
 
-				.bg {
-					fill: $secondary;
-				}
+					.bg {
+						fill: $secondary;
+					}
 
-				.play {
-					fill: $primary;
+					.play {
+						fill: $primary;
+					}
 				}
 			}
 
@@ -159,6 +181,14 @@ main {
 
 			&:not(.filter-active) {
 				display: none;
+			}
+
+			&[data-fav=true] {
+				.movie-fav {
+					.heart {
+						fill: $secondary;
+					}
+				}
 			}
 		}
 	}

@@ -81,6 +81,19 @@ main {
       margin: 0 2em; }
       main .movie-list .movie-item .movie-visual {
         border-radius: 10px; }
+      main .movie-list .movie-item .movie-fav {
+        position: absolute;
+        top: 2%;
+        right: 2%; }
+        main .movie-list .movie-item .movie-fav svg {
+          width: 35px;
+          height: 35px; }
+          main .movie-list .movie-item .movie-fav svg .heart {
+            fill: #fdfdfd;
+            stroke: #fed32f;
+            stroke-width: 50; }
+          main .movie-list .movie-item .movie-fav svg:hover .heart {
+            stroke-width: 75; }
       main .movie-list .movie-item .movie-play {
         position: absolute;
         bottom: 4%;
@@ -97,15 +110,14 @@ main {
         main .movie-list .movie-item .movie-play svg {
           width: 75px;
           height: 75px;
-          fill: #fdfdfd;
           border: 10px solid #1b1b1b;
           border-radius: 100%; }
           main .movie-list .movie-item .movie-play svg:hover {
             border: 8px solid #1b1b1b; }
-        main .movie-list .movie-item .movie-play .bg {
-          fill: #fed32f; }
-        main .movie-list .movie-item .movie-play .play {
-          fill: #fdfdfd; }
+          main .movie-list .movie-item .movie-play svg .bg {
+            fill: #fed32f; }
+          main .movie-list .movie-item .movie-play svg .play {
+            fill: #fdfdfd; }
       main .movie-list .movie-item.is-selected {
         top: 5%;
         opacity: 1;
@@ -122,6 +134,8 @@ main {
           display: none; }
       main .movie-list .movie-item:not(.filter-active) {
         display: none; }
+      main .movie-list .movie-item[data-fav=true] .movie-fav .heart {
+        fill: #fed32f; }
   main .movie-data {
     display: -webkit-box;
     display: -ms-flexbox;

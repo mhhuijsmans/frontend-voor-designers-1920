@@ -20,7 +20,7 @@ request.addEventListener("load", function(){
 	})
 
 	var genreArray = Array.from(genreSet).sort();
-	genreArray.unshift("All");
+	genreArray.unshift('All', 'Favorites');
 	createFilters(genreArray, data);
 	createMovies(data);
 	createCarousel(data);
@@ -86,6 +86,7 @@ function createMovies(data) {
 		li.classList.add('filter-active');
 		li.setAttribute('data-id', i);
 		li.setAttribute('data-genres', data[i].genres);
+		li.setAttribute('data-fav', 'false');
 
 		var img = document.createElement('img');
 		img.classList.add('movie-visual');
@@ -94,23 +95,45 @@ function createMovies(data) {
 		var play = document.createElement('div');
 		play.classList.add('movie-play');
 
-		var svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
-		svg.setAttribute('viewBox', '0 0 512 512')
-		var path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
-		path.setAttribute('d', 'M256,0C114.8,0,0,114.8,0,256s114.8,256,256,256s256-114.8,256-256S397.2,0,256,0z M357.8,265l-149.3,96c-1.8,1.1-3.8,1.7-5.8,1.7c-1.8,0-3.5-0.4-5.1-1.3c-3.4-1.9-5.6-5.5-5.6-9.4V160c0-3.9,2.1-7.5,5.6-9.4c3.4-1.9,7.6-1.7,10.9,0.4l149.3,96c3,2,4.9,5.3,4.9,9C362.7,259.6,360.8,263,357.8,265z');
-		path.classList.add('bg');
-		var path2 = document.createElementNS('http://www.w3.org/2000/svg', 'path');
-		path2.setAttribute('d', 'M357.8,247l-149.3-96c-3.3-2.1-7.5-2.3-10.9-0.4c-3.5,1.9-5.6,5.5-5.6,9.4v192c0,3.9,2.2,7.5,5.6,9.4c1.6,0.9,3.3,1.3,5.1,1.3c2,0,4-0.6,5.8-1.7l149.3-96c3-2,4.9-5.4,4.9-9C362.7,252.3,360.8,249,357.8,247z');
-		path2.classList.add('play');
-		svg.appendChild(path);
-		svg.appendChild(path2);
-		play.appendChild(svg);
+		var playSvg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+		playSvg.setAttribute('viewBox', '0 0 512 512')
+		var playPath1 = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+		playPath1.setAttribute('d', 'M256,0C114.8,0,0,114.8,0,256s114.8,256,256,256s256-114.8,256-256S397.2,0,256,0z M357.8,265l-149.3,96c-1.8,1.1-3.8,1.7-5.8,1.7c-1.8,0-3.5-0.4-5.1-1.3c-3.4-1.9-5.6-5.5-5.6-9.4V160c0-3.9,2.1-7.5,5.6-9.4c3.4-1.9,7.6-1.7,10.9,0.4l149.3,96c3,2,4.9,5.3,4.9,9C362.7,259.6,360.8,263,357.8,265z');
+		playPath1.classList.add('bg');
+		var playPath2 = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+		playPath2.setAttribute('d', 'M357.8,247l-149.3-96c-3.3-2.1-7.5-2.3-10.9-0.4c-3.5,1.9-5.6,5.5-5.6,9.4v192c0,3.9,2.2,7.5,5.6,9.4c1.6,0.9,3.3,1.3,5.1,1.3c2,0,4-0.6,5.8-1.7l149.3-96c3-2,4.9-5.4,4.9-9C362.7,252.3,360.8,249,357.8,247z');
+		playPath2.classList.add('play');
+		playSvg.appendChild(playPath1);
+		playSvg.appendChild(playPath2);
+		play.appendChild(playSvg);
 
-		svg.addEventListener('click', function(e) {
+		playSvg.addEventListener('click', function(e) {
 			alert('If I had the rights to this movie, I would play it for you... You can watch the trailer though!');
 		});
 
+		var fav = document.createElement('div');
+		fav.classList.add('movie-fav');
+
+		var favSvg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+		favSvg.setAttribute('viewBox', '0 0 512 453')
+		var favPath = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+		favPath.setAttribute('d', 'M202.8,372.16c17.08,14.56,34.66,29.54,53.2,45.65c18.54-16.11,36.11-31.09,53.19-45.65C413.26,283.49,482,224.91,482,147.9c0-31.83-10.6-61.39-29.86-83.24c-19.48-22.1-46.52-34.27-76.14-34.27c-41.13,0-67.72,25.34-82.78,46.59c-13.51,19.07-20.56,38.28-22.96,45.66C268.25,128.82,262.49,133,256,133c-6.49,0-12.25-4.18-14.26-10.35c-2.4-7.38-9.45-26.59-22.96-45.66C203.72,55.73,177.13,30.39,136,30.39c-29.62,0-56.66,12.17-76.14,34.27C40.6,86.51,30,116.07,30,147.9C30,224.91,98.74,283.49,202.8,372.16z');
+		favPath.classList.add('heart');
+		favSvg.appendChild(favPath);
+		fav.appendChild(favSvg);
+
+		favSvg.addEventListener('click', function(e) {
+			var target = e.target.closest('.movie-item');
+			if (target.getAttribute('data-fav') == 'true') {
+				target.setAttribute('data-fav', 'false');
+			}
+			else {
+				target.setAttribute('data-fav', 'true');
+			}
+		});
+
 		li.append(play);
+		li.append(fav);
 		li.appendChild(img);
 		ul.appendChild(li);
 	}
@@ -145,10 +168,11 @@ function filterMovies(filter, data) {
 		if (filter == 'All') {
 			movies[i].classList.add('filter-active');
 		}
-		//todo: favorites
-		// else if (filter == 'Favorites') {
-		// 
-		// }
+		else if (filter == 'Favorites') {
+			if (movies[i].getAttribute('data-fav') == 'true') {
+				movies[i].classList.add('filter-active');
+			}
+		}
 		else {
 			if (movies[i].getAttribute('data-genres').includes(filter)) {
 				movies[i].classList.add('filter-active');
@@ -157,30 +181,46 @@ function filterMovies(filter, data) {
 	}
 
 	flickity.destroy();
+
+	var ul = document.querySelector('.movie-list');
+	var moviesArray = Array.from(movies).sort(function(a, b) { return a.getAttribute('data-id') - b.getAttribute('data-id')});
+
+	moviesArray.forEach(function(el) {
+		ul.appendChild(el);
+	});
+
 	createCarousel(data);
 	flickity.reposition();
 }
 
 function editMovieInfo(data, i) {
 
-	var title = document.querySelector('.movie-title');
-	var plot = document.querySelector('.movie-simple-plot');
-	var year = document.querySelector('.movie-year');
-	var genres = document.querySelector('.movie-genres');
-	var time = document.querySelector('.movie-time');
-	var video = document.querySelector('.lightbox-video');
-	//todo: actual trailer links
+	if (i != null) {
+		var title = document.querySelector('.movie-title');
+		var plot = document.querySelector('.movie-simple-plot');
+		var year = document.querySelector('.movie-year');
+		var genres = document.querySelector('.movie-genres');
+		var time = document.querySelector('.movie-time');
+		var video = document.querySelector('.lightbox-video video');
+		//todo: actual trailer links
 
-	title.textContent = data[i].title;
-	plot.textContent = data[i].simple_plot;
-	var date = new Date(data[i].release_date);
-	year.textContent = date.getFullYear();
-	genres.textContent = data[i].genres.join(' / ');
-	time.textContent = "2hr13mins";
+		title.textContent = data[i].title;
+		plot.textContent = data[i].simple_plot;
+		var date = new Date(data[i].release_date);
+		year.textContent = date.getFullYear();
+		genres.textContent = data[i].genres.join(' / ');
+		time.textContent = "2hr13mins";
+		// video.src = data[i].trailer;
+	}
 }
 
 function getCurrentMovieID() {
-	var currentEl = document.querySelector('.movie-item.is-selected').getAttribute('data-id');
+	var currentEl = document.querySelector('.movie-item.is-selected');
 
-	return currentEl;
+	if (currentEl) {
+		return currentEl.getAttribute('data-id');
+	}
+	else {
+		return null;
+	}
 }
