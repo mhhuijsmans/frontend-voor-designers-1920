@@ -183,7 +183,9 @@ function filterMovies(filter, data) {
 	flickity.destroy();
 
 	var ul = document.querySelector('.movie-list');
-	var moviesArray = Array.from(movies).sort(function(a, b) { return a.getAttribute('data-id') - b.getAttribute('data-id')});
+	var moviesArray = Array.from(movies).sort(function(a, b) {
+		return a.getAttribute('data-id') - b.getAttribute('data-id');
+	});
 
 	moviesArray.forEach(function(el) {
 		ul.appendChild(el);
@@ -194,16 +196,20 @@ function filterMovies(filter, data) {
 }
 
 function editMovieInfo(data, i) {
+	var title = document.querySelector('.movie-title');
+	var plot = document.querySelector('.movie-simple-plot');
+	var year = document.querySelector('.movie-year');
+	var genres = document.querySelector('.movie-genres');
+	var time = document.querySelector('.movie-time');
+	var video = document.querySelector('.lightbox-video video');
+
+	var movielist = document.querySelector('.movie-list');
+	var info = document.querySelector('.movie-data');
 
 	if (i != null) {
-		var title = document.querySelector('.movie-title');
-		var plot = document.querySelector('.movie-simple-plot');
-		var year = document.querySelector('.movie-year');
-		var genres = document.querySelector('.movie-genres');
-		var time = document.querySelector('.movie-time');
-		var video = document.querySelector('.lightbox-video video');
 		//todo: actual trailer links
-
+		movielist.classList.remove('is-empty');
+		info.classList.remove('is-hidden');
 		title.textContent = data[i].title;
 		plot.textContent = data[i].simple_plot;
 		var date = new Date(data[i].release_date);
@@ -211,6 +217,11 @@ function editMovieInfo(data, i) {
 		genres.textContent = data[i].genres.join(' / ');
 		time.textContent = "2hr13mins";
 		// video.src = data[i].trailer;
+	}
+	else {
+		movielist.classList.add('is-empty');
+		info.classList.add('is-hidden');
+		console.log('none');
 	}
 }
 

@@ -94,6 +94,18 @@ main {
 		list-style: none;
 		max-height: 750px;
 
+		&.is-empty {
+			.flickity-viewport {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+
+				&:after {
+					content: "You don't have any favorites yet! Try adding some!";
+				}
+			}
+		}
+
 		.flickity-viewport {
 			height: 100% !important;
 		}
@@ -199,6 +211,10 @@ main {
 		width: 100%;
 		height: $dataheight;
 		text-align: center;
+
+		&.is-hidden {
+			visibility: hidden;
+		}
 
 		.movie-title {
 			padding-top: 1em;
