@@ -37,7 +37,7 @@ Mijn eerste idee was een streaming dienst met:
 Voor de carousel heb ik gebruik gemaakt van de library [Flickity](https://github.com/metafizzy/flickity).
 
 ### Feedback
-Tijdens de les heb ik feedback gekregen op bovenstaande eerste versie.
+Ik heb de volgende feedback gekregen op bovenstaande eerste versie.
 1. Missende ul tag
 
     Gefixt :)
