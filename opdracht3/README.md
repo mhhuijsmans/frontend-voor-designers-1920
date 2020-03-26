@@ -1,5 +1,3 @@
-- De trailer links uit het JSON bestand werken niet langer. Kunnen deze geupdate worden/kan ik hier een pullrequest voor doen?
-
 # frontend voor designers - opdracht 3: Een interactie uitwerken met externe data
 
 Voor deze opdracht ga je een functionaliteit ontwerpen met externe data. De data is JSON die met een [REST API](https://developer.mozilla.org/en-US/docs/Glossary/REST) van een externe bron wordt ingeladen met Javascript.  Als de data geladen is moeten gebruikers je ontwerp op verschillende manieren kunnen bedienen. Verschillende states zijn vormgeven en worden op het juiste moment getoond.
@@ -37,5 +35,22 @@ Mijn eerste idee was een streaming dienst met:
 - Vanwege het beperkt aantal films in de JSON (zeker als je ook nog filtert) is het niet mogelijk om een wraparound carousel te maken. 
 
 Voor de carousel heb ik gebruik gemaakt van de library [Flickity](https://github.com/metafizzy/flickity).
+
+### Feedback
+Tijdens de les heb ik feedback gekregen op bovenstaande eerste versie.
+1. Missende ul tag
+
+    Gefixt :)
+
+2. Aparte JSON inladen
+
+    Ik heb dit wel overwogen te doen, maar ik vond het uiteindelijk handiger om uit het hoofdbestand zelf te halen, omdat deze data altijd overeen zal komen met de films zelf.
+    
+### Tweede versie
+![Tweede versie](https://github.com/mhhuijsmans/frontend-voor-designers-1920/raw/master/opdracht3/doc/v2.jpg)
+
+#### Toegevoegd:
+- Favorieten
+- Daadwerkelijke trailer links
 
 [Live link](https://mhhuijsmans.github.io/frontend-voor-designers-1920/opdracht3/)
