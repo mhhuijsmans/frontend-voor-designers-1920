@@ -207,7 +207,6 @@ function editMovieInfo(data, i) {
 	var info = document.querySelector('.movie-data');
 
 	if (i != null) {
-		//todo: actual trailer links
 		movielist.classList.remove('is-empty');
 		info.classList.remove('is-hidden');
 		title.textContent = data[i].title;
@@ -216,7 +215,7 @@ function editMovieInfo(data, i) {
 		year.textContent = date.getFullYear();
 		genres.textContent = data[i].genres.join(' / ');
 		time.textContent = "2hr13mins";
-		// video.src = data[i].trailer;
+		video.src = data[i].trailer;
 	}
 	else {
 		movielist.classList.add('is-empty');
