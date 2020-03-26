@@ -220,7 +220,6 @@ function editMovieInfo(data, i) {
 	else {
 		movielist.classList.add('is-empty');
 		info.classList.add('is-hidden');
-		console.log('none');
 	}
 }
 
