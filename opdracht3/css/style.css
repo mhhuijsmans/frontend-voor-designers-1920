@@ -53,7 +53,11 @@ header {
     header .genre-list .genre-item {
       margin: 0 .5em .5em;
       cursor: pointer; }
-      header .genre-list .genre-item.is-selected span {
+      header .genre-list .genre-item .fav-counter {
+        margin-left: .5em;
+        font-size: .7em;
+        vertical-align: super !important; }
+      header .genre-list .genre-item.is-selected > span {
         border-bottom: 5px solid #fed32f; }
       header .genre-list .genre-item:first-of-type {
         margin-left: 0; }

@@ -39,8 +39,6 @@ request.addEventListener("load", function(){
 		video.play();
 	});
 
-	var details = document.querySelector('.movie-details');
-
 	var closeLightbox = document.querySelectorAll('.js-close-lightbox');
 	for (i = 0; i < closeLightbox.length; i++) {
 		closeLightbox[i].addEventListener('click', function(e) {
@@ -60,6 +58,14 @@ function createFilters(filters, data) {
 		var li = document.createElement('li');
 		var span = document.createElement('span');
 		span.textContent = filters[i];
+
+		if (i == 1) {
+			var favCounter = document.createElement('span');
+			favCounter.classList.add('fav-counter');
+			favCounter.textContent = 0;
+			span.appendChild(favCounter);
+		}
+
 		li.classList.add('genre-item');
 		if (i == 0) {
 			li.classList.add('is-selected');
@@ -130,6 +136,7 @@ function createMovies(data) {
 			else {
 				target.setAttribute('data-fav', 'true');
 			}
+			countFavorites();
 		});
 
 		li.append(play);
@@ -168,7 +175,7 @@ function filterMovies(filter, data) {
 		if (filter == 'All') {
 			movies[i].classList.add('filter-active');
 		}
-		else if (filter == 'Favorites') {
+		else if (filter.includes('Favorites')) {
 			if (movies[i].getAttribute('data-fav') == 'true') {
 				movies[i].classList.add('filter-active');
 			}
@@ -193,6 +200,19 @@ function filterMovies(filter, data) {
 
 	createCarousel(data);
 	flickity.reposition();
+}
+
+function countFavorites() {
+	var favCount = 0;
+	var movies = document.querySelectorAll('.movie-item');
+	for (i = 0; i < movies.length; i++) {
+		if (movies[i].getAttribute('data-fav') == 'true') {
+			favCount++;
+		}
+	}
+
+	var favCounter = document.querySelector('.fav-counter');
+	favCounter.textContent = favCount;
 }
 
 function editMovieInfo(data, i) {

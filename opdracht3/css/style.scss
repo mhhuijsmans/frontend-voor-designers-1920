@@ -70,8 +70,14 @@ header {
 			margin: 0 .5em .5em;
 			cursor: pointer;
 
+			.fav-counter {
+				margin-left: .5em;
+				font-size: .7em;
+				vertical-align: super !important;
+			}
+
 			&.is-selected {
-				span {
+				& > span {
 					border-bottom: 5px solid $secondary;
 				}
 			}
@@ -375,6 +381,7 @@ main {
 				margin: 0;
 				padding-bottom: .5em;
 				font-size: .8em;
+
 			}
 		}
 	}
