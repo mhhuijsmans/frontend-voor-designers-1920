@@ -25,9 +25,11 @@ request.addEventListener("load", function(){
 	createMovies(data);
 	createCarousel(data);
 
-	var hamburger = document.querySelector('.hamburger');
-	hamburger.addEventListener('click', function() {
-		hamburger.classList.toggle('is-active');
+	var ul = document.querySelector('.genre-list')
+	var toggle = document.querySelector('.toggle');
+	toggle.addEventListener('click', function() {
+		toggle.classList.toggle('is-active');
+		ul.classList.toggle('is-active')
 		flickity.reposition();
 	});
 
