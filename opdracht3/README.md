@@ -93,7 +93,7 @@ Ik heb de volgende feedback gekregen op bovenstaande eerste versie.
     ![Pijltje](https://github.com/mhhuijsmans/frontend-voor-designers-1920/raw/master/opdracht3/doc/arrow.jpg)
     
 ### Derde versie
-![Tweede versie](https://github.com/mhhuijsmans/frontend-voor-designers-1920/raw/master/opdracht3/doc/v3.jpg)
+![Derde versie](https://github.com/mhhuijsmans/frontend-voor-designers-1920/raw/master/opdracht3/doc/v3.jpg)
 
 #### Todo:
 - Plot te lang
