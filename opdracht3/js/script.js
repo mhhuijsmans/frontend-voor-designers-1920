@@ -114,7 +114,11 @@ function createMovies(data) {
 		play.appendChild(playSvg);
 
 		playSvg.addEventListener('click', function(e) {
-			alert('If I had the rights to this movie, I would play it for you... You can watch the trailer though!');
+			var trailerBtn = document.querySelector('.btn-trailer');
+			var watchTrailer = confirm("If I had the rights to this movie, I would play it for you... You can watch the trailer though!\nPress OK to watch the trailer, or cancel to return.");
+			if (watchTrailer == true) {
+				trailerBtn.click();
+			}
 		});
 
 		var fav = document.createElement('div');
