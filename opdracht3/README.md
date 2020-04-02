@@ -74,7 +74,7 @@ Ik heb de volgende feedback gekregen op bovenstaande eerste versie.
 
 	Hiermee wordt een klik op de trailer button gesimuleerd wanneer de gebruiker op OK drukt.
 
-	![Link naar trailer in alert](https://github.com/mhhuijsmans/frontend-voor-designers-1920/raw/master/opdracht3/doc/favorites.jpg)
+	![Link naar trailer in alert](https://github.com/mhhuijsmans/frontend-voor-designers-1920/raw/master/opdracht3/doc/traileralert.JPG)
 
 2. Plot is soms verder nog wel een (te) lange regel
 
@@ -90,7 +90,7 @@ Ik heb de volgende feedback gekregen op bovenstaande eerste versie.
 
     Ik heb het hamburger icoon vervangen door een draaiende pijl.
 
-    ![Pijltje](https://github.com/mhhuijsmans/frontend-voor-designers-1920/raw/master/opdracht3/doc/arrow.jpg)
+    ![Pijltje](https://github.com/mhhuijsmans/frontend-voor-designers-1920/raw/master/opdracht3/doc/arrow.JPG)
     
 ### Derde versie
 ![Derde versie](https://github.com/mhhuijsmans/frontend-voor-designers-1920/raw/master/opdracht3/doc/v3.jpg)
