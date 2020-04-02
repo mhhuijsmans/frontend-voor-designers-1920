@@ -1,3 +1,7 @@
+[Live link](https://mhhuijsmans.github.io/frontend-voor-designers-1920/opdracht3/)
+
+Vraag: ik snap je feedback "plot is soms verder nog wel een (te) lange regel" niet precies. Bedoel je hiermee dat er teveel tekst staat of dat het beter op meerdere regels kan?
+
 # frontend voor designers - opdracht 3: Een interactie uitwerken met externe data
 
 Voor deze opdracht ga je een functionaliteit ontwerpen met externe data. De data is JSON die met een [REST API](https://developer.mozilla.org/en-US/docs/Glossary/REST) van een externe bron wordt ingeladen met Javascript.  Als de data geladen is moeten gebruikers je ontwerp op verschillende manieren kunnen bedienen. Verschillende states zijn vormgeven en worden op het juiste moment getoond.
@@ -52,5 +56,53 @@ Ik heb de volgende feedback gekregen op bovenstaande eerste versie.
 #### Toegevoegd:
 - Favorieten
 - Daadwerkelijke trailer links
+
+### Feedback
+Ik heb de volgende feedback gekregen op bovenstaande eerste versie.
+1. Link naar trailer in alert
+
+    Leuk idee! Dit heb ik geïmplementeerd door de `alert()` method in een `confirm()` method te veranderen.
+    ```javascript
+    playSvg.addEventListener('click', function(e) {
+		var trailerBtn = document.querySelector('.btn-trailer');
+		var watchTrailer = confirm("If I had the rights to this movie, I would play it for you... You can watch the trailer though!\nPress OK to watch the trailer, or cancel to return.");
+		if (watchTrailer == true) {
+			trailerBtn.click();
+		}
+	});
+	```
+
+	Hiermee wordt een klik op de trailer button gesimuleerd wanneer de gebruiker op OK drukt.
+
+	![Link naar trailer in alert](https://github.com/mhhuijsmans/frontend-voor-designers-1920/raw/master/opdracht3/doc/favorites.jpg)
+
+2. Plot is soms verder nog wel een (te) lange regel
+
+    Nog niet aangepast.
+
+3. Hartjes & feedback filter
+
+    Ik heb een teller toegevoegd die automatisch update wanneer je een favoriet toevoegt of verwijdert.
+
+    ![Favorieten teller](https://github.com/mhhuijsmans/frontend-voor-designers-1920/raw/master/opdracht3/doc/favorites.jpg)
+
+4. Hamburger past niet bij filter
+
+    Ik heb het hamburger icoon vervangen door een draaiende pijl.
+
+    ![Pijltje](https://github.com/mhhuijsmans/frontend-voor-designers-1920/raw/master/opdracht3/doc/arrow.jpg)
+    
+### Derde versie
+![Tweede versie](https://github.com/mhhuijsmans/frontend-voor-designers-1920/raw/master/opdracht3/doc/v3.jpg)
+
+#### Todo:
+- Plot te lang
+
+#### Toegevoegd:
+- Optie om trailer te bekijken vanuit de alert
+- Favorieten teller
+
+#### Aangepast:
+- Hamburger -> pijltje
 
 [Live link](https://mhhuijsmans.github.io/frontend-voor-designers-1920/opdracht3/)
