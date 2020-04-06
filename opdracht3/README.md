@@ -1,7 +1,5 @@
 [Live link](https://mhhuijsmans.github.io/frontend-voor-designers-1920/opdracht3/)
 
-Vraag: ik snap je feedback "plot is soms verder nog wel een (te) lange regel" niet precies. Bedoel je hiermee dat er teveel tekst staat of dat het beter op meerdere regels kan?
-
 # frontend voor designers - opdracht 3: Een interactie uitwerken met externe data
 
 Voor deze opdracht ga je een functionaliteit ontwerpen met externe data. De data is JSON die met een [REST API](https://developer.mozilla.org/en-US/docs/Glossary/REST) van een externe bron wordt ingeladen met Javascript.  Als de data geladen is moeten gebruikers je ontwerp op verschillende manieren kunnen bedienen. Verschillende states zijn vormgeven en worden op het juiste moment getoond.
@@ -78,7 +76,7 @@ Ik heb de volgende feedback gekregen op bovenstaande eerste versie.
 
 2. Plot is soms verder nog wel een (te) lange regel
 
-    Nog niet aangepast.
+    Ik heb de plot een max-width in ems meegegeven (zodat het meeschaalt met de fontgrootte). Hierbij heb ik rekening gehouden met een goede leeslengte; dit is tussen de 40 en 75 karakters per regel. [Bron - The Elements of Typographic Style Applied to the Web](http://webtypography.net/2.1.2)
 
 3. Hartjes & feedback filter
 
@@ -104,5 +102,6 @@ Ik heb de volgende feedback gekregen op bovenstaande eerste versie.
 
 #### Aangepast:
 - Hamburger -> pijltje
+- Plot width ingekort
 
 [Live link](https://mhhuijsmans.github.io/frontend-voor-designers-1920/opdracht3/)
