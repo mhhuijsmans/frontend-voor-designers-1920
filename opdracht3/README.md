@@ -93,9 +93,6 @@ Ik heb de volgende feedback gekregen op bovenstaande eerste versie.
 ### Derde versie
 ![Derde versie](https://github.com/mhhuijsmans/frontend-voor-designers-1920/raw/master/opdracht3/doc/v3.jpg)
 
-#### Todo:
-- Plot te lang
-
 #### Toegevoegd:
 - Optie om trailer te bekijken vanuit de alert
 - Favorieten teller
